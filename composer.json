@@ -1,0 +1,14 @@
+{
+    "name": "delennerd/delennerd-elements",
+    "version": "1.0.1",
+    "type": "wordpress-plugin",
+    "authors": [
+        {
+            "name": "DeLennerd Media",
+            "email": "mail@delennerd.de"
+        }
+    ],
+    "require": {
+        "yahnis-elsts/plugin-update-checker": "^4.11"
+    }
+}

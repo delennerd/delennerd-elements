@@ -1,0 +1,313 @@
+
+$primary:       null;
+$secondary:     null;
+
+$white:         #fff;
+$black:         #000;
+
+
+%box-shadow {
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+
+.delennerd-timeline-wrapper {
+    float: left;
+    width: 100%;
+
+    &::after {
+        content: " ";
+        display: table;
+        clear: both;
+    }
+}
+
+.timeline-box-inner {
+    border-color: #df561b;
+    background-color: $white;
+    @extend %box-shadow;
+    padding: 20px 5%;
+    position: relative;
+    border-width: 5px 0 0 0;
+    border-style: solid;
+}
+
+.calendar-busy, .section-box {
+    background-color: $white;
+   @extend %box-shadow; 
+}
+
+
+.sidebar-default {
+    .profile-photo {
+        img {
+            background-color: $white;
+            @extend %box-shadow;
+        }
+    }
+}
+
+.timeline {
+    position: relative;
+
+    .timeline-bar {
+        content: '';
+        width: 4px;
+        opacity: 0.2;
+        margin-left: -2px;
+        position: absolute;
+        left: 50%;
+        top: 45px;
+        height: 100%;
+        background-color: #df561b;
+    }
+
+    .timeline-inner {
+        position: relative;
+    }
+}
+
+.timeline-box {
+    width: 50%;
+    color: #757575;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    position: absolute;
+
+    .dot {
+        background-color: #df561b;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    .list-company {
+        color: #414141;
+        font-size: 1.25em;
+        font-weight: 400;
+        line-height: 1.1;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .list-job {
+        color: #878787;
+        font-size: 0.86em;
+        font-weight: 400;
+        line-height: 1.1;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    p {
+        font-size: 1em;
+        font-weight: 300;
+        margin-bottom: 16px;
+    }
+
+    ul {
+        font-size: 1em;
+        font-weight: 300;
+        margin-bottom: 16px;
+    }
+
+    .list-date {
+        font-size: 0.95em;
+        font-weight: 600;
+        line-height: 1;
+        text-align: center;
+        margin-bottom: 15px;
+        color: #df561b;
+    }
+}
+
+.timeline-box-compact {
+    .list-date {
+        text-align: left;
+
+        span {
+            color: $white;
+            font-size: 1em;
+            font-weight: 400;
+            line-height: 1;
+            display: inline-block;
+            position: relative;
+            padding: 5px 8px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+
+            &:before {
+                content: '';
+                width: 0;
+                height: 0;
+                top: 100%;
+                left: 5px;
+                display: block;
+                position: absolute;
+                border-style: solid;
+                border-width: 0 0 8px 8px;
+                border-color: transparent;
+                border-left-color: #DF561B;
+            }
+        }
+    }
+
+    .list-company {
+        text-align: left;
+    }
+
+    .list-job {
+        text-align: left;
+    }
+}
+
+.timeline-box-left {
+    .dot {
+        top: 80px;
+        width: 8px;
+        height: 8px;
+        display: block;
+        position: absolute;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        right: 0px;
+        margin-right: -4px;
+    }
+
+    .arrow {
+        top: 60px;
+        width: 12px;
+        height: 41px;
+        display: block;
+        position: absolute;
+        background-image: url("../images/arrows.png");
+        background-repeat: no-repeat;
+
+        &:before {
+            width: 0;
+            height: 0;
+            content: '';
+            display: block;
+        }
+    }
+
+    float: left;
+    clear: left;
+    left: 0;
+
+    .timeline-box-inner {
+        margin-right: 35px;
+
+        .arrow {
+            right: -12px;
+            background-position: -18px 0;
+
+            &:before {
+                margin-right: 2px;
+                border-top: 20px solid transparent;
+                border-bottom: 20px solid transparent;
+                border-left: 10px solid $white;
+                margin-right: 2px;
+                border-top: 20px solid transparent;
+                border-bottom: 20px solid transparent;
+                border-left: 10px solid $white;
+            }
+        }
+    }
+}
+
+.timeline-box-right {
+    .dot {
+        top: 80px;
+        width: 8px;
+        height: 8px;
+        display: block;
+        position: absolute;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        left: 0px;
+        margin-left: -4px;
+    }
+
+    .arrow {
+        top: 60px;
+        width: 12px;
+        height: 41px;
+        display: block;
+        position: absolute;
+        background-image: url("../images/arrows.png");
+        background-repeat: no-repeat;
+
+        &:before {
+            width: 0;
+            height: 0;
+            content: '';
+            display: block;
+        }
+    }
+
+    float: right;
+    clear: right;
+    right: 0;
+
+    .timeline-box-inner {
+        margin-left: 35px;
+
+        .arrow {
+            left: -12px;
+            background-position: 0 0;
+
+            &:before {
+                margin-left: 2px;
+                border-top: 20px solid transparent;
+                border-bottom: 20px solid transparent;
+                border-right: 10px solid $white;
+                margin-left: 2px;
+                border-top: 20px solid transparent;
+                border-bottom: 20px solid transparent;
+                border-right: 10px solid $white;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .timeline {
+        height: auto !important;
+        height: 100%;
+
+        .timeline-bar {
+            height: 100% !important;
+        }
+    }
+
+    .timeline-box {
+        width: 100%;
+        float: none;
+        margin-left: 0;
+        margin-right: 0;
+        position: relative;
+        top: 0 !important;
+
+        .timeline-box-inner {
+            margin-left: 0;
+            margin-right: 0;
+
+            .arrow {
+                display: none;
+            }
+        }
+
+        .dot {
+            display: none;
+        }
+
+        .list-job {
+            line-height: 1.4em;
+        }
+    }
+}

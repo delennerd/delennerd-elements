@@ -1,0 +1,262 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Delennerd Elements\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-11 21:35+0000\n"
+"PO-Revision-Date: 2019-05-11 21:36+0000\n"
+"Last-Translator: plehnert <nobody@localhost>\n"
+"Language-Team: Deutsch\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.2.2; wp-5.1.1"
+
+#: delennerd-elements.php:34
+msgid "Delennerd"
+msgstr "Delennerd"
+
+#. 1: Plugin name 2: Elementor
+#: includes/class.delennerd-elements.php:88
+#, php-format
+msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
+msgstr "\"%1$s\" requires \"%2$s\" to be installed and activated."
+
+#: includes/class.delennerd-elements.php:89
+#: includes/class.delennerd-elements.php:112
+#: includes/class.delennerd-elements.php:136
+msgid "Elementor Hello World"
+msgstr ""
+
+#: includes/class.delennerd-elements.php:90
+#: includes/class.delennerd-elements.php:113
+msgid "Elementor"
+msgstr "Elementor"
+
+#. 1: Plugin name 2: Elementor 3: Required Elementor version
+#. 1: Plugin name 2: PHP 3: Required PHP version
+#: includes/class.delennerd-elements.php:111
+#: includes/class.delennerd-elements.php:135
+#, php-format
+msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
+msgstr "\"%1$s\" requires \"%2$s\" version %3$s or greater."
+
+#: includes/class.delennerd-elements.php:137
+msgid "PHP"
+msgstr "PHP"
+
+#: modules/test/module.php:41
+msgid "Test Widget"
+msgstr "Test Widget"
+
+#: modules/test/module.php:88 modules/test/module.php:142
+#: modules/test/module.php:144 modules/image-text-box/module.php:89
+#: modules/image-text-box/module.php:135 modules/image-text-box/module.php:330
+#: modules/timeline/module.php:93 modules/timeline/module.php:133
+msgid "Content"
+msgstr "Inhalt"
+
+#: modules/test/module.php:124 modules/test/module.php:126
+#: modules/image-text-box/module.php:126 modules/image-text-box/module.php:128
+#: modules/image-text-box/module.php:236
+msgid "Title"
+msgstr "Titel"
+
+#: modules/test/module.php:133 modules/test/module.php:135
+#: modules/timeline/module.php:376
+msgid "Description"
+msgstr "Beschreibung"
+
+#: modules/test/module.php:151 modules/image-text-box/module.php:153
+msgid "Button Link"
+msgstr "Button"
+
+#: modules/test/module.php:166 modules/test/module.php:168
+#: modules/image-text-box/module.php:168 modules/image-text-box/module.php:190
+msgid "Button Text"
+msgstr "Button Text"
+
+#: modules/test/module.php:241 modules/image-text-box/module.php:283
+#: modules/image-text-box/module.php:362 modules/image-text-box/module.php:448
+#: modules/timeline/module.php:237 modules/timeline/module.php:308
+#: modules/timeline/module.php:354 modules/timeline/module.php:400
+msgid "Typography"
+msgstr "Typografie"
+
+#: modules/image-text-box/module.php:42
+msgid "Image Text Box"
+msgstr "Image Text Box"
+
+#: modules/image-text-box/module.php:96 modules/image-text-box/module.php:202
+msgid "Image"
+msgstr "Bild"
+
+#: modules/image-text-box/module.php:109
+msgid "Image size"
+msgstr "Bildmaße"
+
+#: modules/image-text-box/module.php:115
+msgid "Thumbnail - 150 x 150"
+msgstr "Thumbnail - 150 x 150"
+
+#: modules/image-text-box/module.php:116
+msgid "Medium - 300 x 300"
+msgstr "Medium - 300 x 300"
+
+#: modules/image-text-box/module.php:117
+msgid "Medium Large - 768 x 0"
+msgstr "Medium Large - 768 x 0"
+
+#: modules/image-text-box/module.php:118 modules/image-text-box/module.php:174
+msgid "Custom"
+msgstr "Individuell"
+
+#: modules/image-text-box/module.php:137
+msgid "Box content"
+msgstr "Box Inhalt"
+
+#: modules/image-text-box/module.php:146 modules/image-text-box/module.php:409
+msgid "Button"
+msgstr "Button"
+
+#: modules/image-text-box/module.php:155
+msgid "https://your-link.com"
+msgstr "https://your-link.com"
+
+#: modules/image-text-box/module.php:172
+msgid "Same tab"
+msgstr "Gleicher Tab/Fenster"
+
+#: modules/image-text-box/module.php:173
+msgid "New tab"
+msgstr "Neuer Tab/Fenster"
+
+#: modules/image-text-box/module.php:182
+msgid "Custom link target"
+msgstr "Individueller Link Target"
+
+#: modules/image-text-box/module.php:192
+msgid "My Button"
+msgstr "Mein Button"
+
+#: modules/image-text-box/module.php:210 modules/image-text-box/module.php:244
+#: modules/image-text-box/module.php:338
+msgid "Distance"
+msgstr "Abstand"
+
+#: modules/image-text-box/module.php:267
+msgid "Title Color"
+msgstr "Titel Textfarbe"
+
+#: modules/image-text-box/module.php:300 modules/image-text-box/module.php:379
+#: modules/image-text-box/module.php:465 modules/timeline/module.php:254
+msgid "Alignment"
+msgstr "Ausrichtung"
+
+#: modules/image-text-box/module.php:304 modules/image-text-box/module.php:383
+#: modules/image-text-box/module.php:469 modules/timeline/module.php:259
+msgid "Left"
+msgstr "Links"
+
+#: modules/image-text-box/module.php:308 modules/image-text-box/module.php:387
+#: modules/image-text-box/module.php:473 modules/timeline/module.php:263
+msgid "Center"
+msgstr "Zentrieren"
+
+#: modules/image-text-box/module.php:312 modules/image-text-box/module.php:391
+#: modules/image-text-box/module.php:477 modules/timeline/module.php:267
+msgid "Right"
+msgstr "Rechts"
+
+#: modules/image-text-box/module.php:417 modules/timeline/module.php:292
+#: modules/timeline/module.php:338 modules/timeline/module.php:384
+msgid "Text Color"
+msgstr "Textfarbe"
+
+#: modules/image-text-box/module.php:432
+msgid "Background color"
+msgstr "Hintergrundfarbe"
+
+#: modules/timeline/module.php:46
+msgid "DLM Timeline"
+msgstr "DLM Timeline"
+
+#: modules/timeline/module.php:103
+msgid "Timeline Items"
+msgstr "Timeline Einträge"
+
+#: modules/timeline/module.php:105
+msgid "since 04/2019"
+msgstr "seit 04/2019"
+
+#: modules/timeline/module.php:113 modules/timeline/module.php:284
+msgid "Company"
+msgstr "Firma"
+
+#: modules/timeline/module.php:115
+msgid "Foo bar GmbH"
+msgstr "Foo bar GmbH"
+
+#: modules/timeline/module.php:123 modules/timeline/module.php:330
+msgid "Job"
+msgstr "Job"
+
+#: modules/timeline/module.php:125
+msgid "Web developer"
+msgstr "Web developer"
+
+#: modules/timeline/module.php:135 modules/timeline/module.php:149
+#: modules/timeline/module.php:153
+msgid "Item content"
+msgstr "Inhalt"
+
+#: modules/timeline/module.php:143 modules/timeline/module.php:212
+msgid "Date"
+msgstr "Datum"
+
+#: modules/timeline/module.php:148
+msgid "Title #1"
+msgstr "Titel #1"
+
+#: modules/timeline/module.php:152
+msgid "Title #2"
+msgstr "Titel #1"
+
+#: modules/timeline/module.php:168
+msgid "Box"
+msgstr "Box"
+
+#: modules/timeline/module.php:176
+msgid "Margin"
+msgstr "Margin"
+
+#: modules/timeline/module.php:189
+msgid "Border"
+msgstr "Rahmen"
+
+#: modules/timeline/module.php:198
+msgid "Box Shadow"
+msgstr "Box Schatten"
+
+#: modules/timeline/module.php:220
+msgid "Date Color"
+msgstr "Datum Text Farbe"
+
+#. Name of the plugin
+msgid "Delennerd Elements"
+msgstr "Delennerd Elements"
+
+#. Description of the plugin
+msgid "Delennerd Elements."
+msgstr "Delennerd Elements."
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://delennerd.de"
+msgstr "https://delennerd.de"
+
+#. Author of the plugin
+msgid "Pascal Lehnert"
+msgstr "Pascal Lehnert"
