@@ -15,6 +15,7 @@ class Widgets {
         'bootstrap-button',
         'bootstrap-card',
         'section-headline',
+        'flipbox',
     ];
 
 	/**

@@ -417,7 +417,7 @@ class SectionHeadline extends Widget_Base
 
         /************
         /** Global
-        ************/
+        /***********/
 
         $this->add_render_attribute( 'headline', 'class', 'section-headline' );
         

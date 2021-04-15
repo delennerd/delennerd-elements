@@ -82,7 +82,7 @@ class BootstrapCard extends Widget_Base {
      *
      * @access protected
      */
-	protected function register_controls() {
+	protected function _register_controls() {
         
         /***********************/
         /** SECTION: Content **/
@@ -132,6 +132,9 @@ class BootstrapCard extends Widget_Base {
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
                 'default' => __( 'Title', 'delennerd-elements' ),
+                'dynamic' => [
+					'active' => true,
+				],
             ]
         );
 
@@ -141,6 +144,9 @@ class BootstrapCard extends Widget_Base {
                 'label' => __( 'Content', 'delennerd-elements' ),
                 'type' => Controls_Manager::WYSIWYG,
                 'default' => __( '<p>Box content</p>', 'delennerd-elements' ),
+                'dynamic' => [
+					'active' => true,
+				],
             ]
         );
 
@@ -168,7 +174,10 @@ class BootstrapCard extends Widget_Base {
                     'url' => '#',
                     'is_external' => false,
                     'nofollow' => true,
-                ]
+                ],
+                'dynamic' => [
+					'active' => true,
+				],
             ]
         );
 
@@ -209,6 +218,9 @@ class BootstrapCard extends Widget_Base {
                 'label' => __( 'Button Text', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXT,
                 'default' => __( 'My Button', 'delennerd-elements' ),
+                'dynamic' => [
+					'active' => true,
+				],
             ]
         );
 
@@ -554,10 +566,12 @@ class BootstrapCard extends Widget_Base {
                 'class' => [
                     'btn',
                     'btn-' . $settings['css_class'],
-                    $settings['button_custom_css_class']
                 ]
             ]
         );
+
+        $this->add_render_attribute( 'button_link', 'class', $settings['button_custom_css_class'] );
+        
     ?>
         <div class="bs-card-wrapper card">
 
@@ -596,10 +610,6 @@ class BootstrapCard extends Widget_Base {
     protected function content_template() {
     ?>
 		<#
-            view.addInlineEditingAttributes( 'title' );
-            view.addInlineEditingAttributes( 'content' );
-            view.addInlineEditingAttributes( 'button_text' );
-
             var image = {
                 id: settings.image.id,
                 url: settings.image.url,
@@ -610,7 +620,7 @@ class BootstrapCard extends Widget_Base {
             var image_url = elementor.imagesManager.getImageUrl( image );
 
             view.addRenderAttribute(
-                'button_link',
+                'buttonLink',
                 {   
                     'href': settings.link_href.url,
                     'target': settings.link_target,
@@ -630,18 +640,20 @@ class BootstrapCard extends Widget_Base {
             </div>
 
             <div class="card-body">
-
-                <h5 class="widget-title card-title" {{{ view.getRenderAttributeString( 'title' ) }}}>
-                    {{{ settings.title }}}
-                </h5>
+                
+                <#
+                print( '<h5 class="widget-title card-title">' + settings.title + '</h5>' );
+                #>
 
                 <div class="widget-content card-text" {{{ view.getRenderAttributeString( 'content' ) }}}>
                     {{{ settings.content }}}
                 </div>
 
+                
                 <# if ( settings.button_text ) { #>
+
                 <div class="widget-button" {{{ view.getRenderAttributeString( 'button_text' ) }}}>
-                    <a {{{ view.getRenderAttributeString( 'button_link' ) }}}>{{{ settings.button_text }}}</a>
+                    <a {{{ view.getRenderAttributeString( 'buttonLink' ) }}}>{{{ settings.button_text }}}</a>
                 </div>
                 <# } #>
 
