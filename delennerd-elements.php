@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Delennerd Elements
  * Description: Delennerd Elements
- * Version:     1.2.2
+ * Version:     1.3
  * Author:      Pascal Lehnert
  * Author URI:  https://delennerd.de
  * Text Domain: delennerd-elements
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'DELENNERD_ELEMENTS_VER', '1.2.2' );
+define( 'DELENNERD_ELEMENTS_VER', '1.3' );
 define( 'DELENNERD_ELEMENTS_MINIMUM_ELEMENTOR_VERSION', '2.0' );
 define( 'DELENNERD_ELEMENTS_MINIMUM_PHP_VERSION', '7.0' );
 

@@ -250,37 +250,6 @@ gulp.task(
 	} )
 );
 
-/**
- * Deletes all files inside the dist-product folder and the folder itself.
- *
- * Run: gulp clean-dist-product
- */
-gulp.task( 'clean-dist-product', function() {
-	return del( paths.distprod );
-} );
-
-// Run
-// gulp dist-product
-// Copies the files to the /dist-prod folder for distribution as theme with all assets
-gulp.task(
-	'dist-product',
-	gulp.series( [ 'clean-dist-product' ], function() {
-		return gulp
-			.src( [
-				'**/*',
-				'!' + paths.node,
-				'!' + paths.node + '/**',
-				'!' + paths.composer,
-				'!' + paths.composer + '/**',
-				'!' + paths.dist,
-				'!' + paths.dist + '/**',
-				'!' + paths.distprod,
-				'!' + paths.distprod + '/**',
-			] )
-			.pipe( gulp.dest( paths.distprod ) );
-	} )
-);
-
 // Run
 // gulp compile
 // Compiles the styles and scripts and runs the dist task

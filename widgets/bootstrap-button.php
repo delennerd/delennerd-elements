@@ -227,8 +227,13 @@ class BootstrapButton extends Widget_Base {
                 'type' => Controls_Manager::SELECT,
                 'default' => 'primary',
                 'options' => [
+                    'link' => __( 'Link', 'delennerd-elements' ),
                     'primary' => __( 'Primary', 'delennerd-elements' ),
                     'secondary' => __( 'Secondary', 'delennerd-elements' ),
+
+                    'outline-primary' => __( 'Outline Primary', 'delennerd-elements' ),
+                    'outline-secondary' => __( 'Outline Secondary', 'delennerd-elements' ),
+
                     'outline-custom' => __( 'Outline Custom', 'delennerd-elements' ),
                     'outline-custom btn-outline-custom--primary' => __( 'Outline Custom - Primary', 'delennerd-elements' ),
                     'outline-custom btn-outline-custom--secondary' => __( 'Outline Custom - Secondary', 'delennerd-elements' ),
@@ -236,13 +241,9 @@ class BootstrapButton extends Widget_Base {
                     'success' => __( 'Success', 'delennerd-elements' ),
                     'danger' => __( 'Danger', 'delennerd-elements' ),
                     'warning' => __( 'Warning', 'delennerd-elements' ),
-
-                    'outline-primary' => __( 'Outline Primary', 'delennerd-elements' ),
-                    'outline-secondary' => __( 'Outline Secondary', 'delennerd-elements' ),
                     'outline-success' => __( 'Outline Success', 'delennerd-elements' ),
                     'outline-danger' => __( 'Outline Danger', 'delennerd-elements' ),
                     'outline-warning' => __( 'Outline Warning', 'delennerd-elements' ),
-                    'link' => __( 'Link', 'delennerd-elements' ),
                 ],
             ]
         );

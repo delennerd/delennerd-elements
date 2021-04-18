@@ -479,8 +479,13 @@ class BootstrapCard extends Widget_Base {
                 'type' => Controls_Manager::SELECT,
                 'default' => 'primary',
                 'options' => [
+                    'link' => __( 'Link', 'delennerd-elements' ),
                     'primary' => __( 'Primary', 'delennerd-elements' ),
                     'secondary' => __( 'Secondary', 'delennerd-elements' ),
+
+                    'outline-primary' => __( 'Outline Primary', 'delennerd-elements' ),
+                    'outline-secondary' => __( 'Outline Secondary', 'delennerd-elements' ),
+
                     'outline-custom' => __( 'Outline Custom', 'delennerd-elements' ),
                     'outline-custom btn-outline-custom--primary' => __( 'Outline Custom - Primary', 'delennerd-elements' ),
                     'outline-custom btn-outline-custom--secondary' => __( 'Outline Custom - Secondary', 'delennerd-elements' ),
@@ -488,9 +493,6 @@ class BootstrapCard extends Widget_Base {
                     'success' => __( 'Success', 'delennerd-elements' ),
                     'danger' => __( 'Danger', 'delennerd-elements' ),
                     'warning' => __( 'Warning', 'delennerd-elements' ),
-
-                    'outline-primary' => __( 'Outline Primary', 'delennerd-elements' ),
-                    'outline-secondary' => __( 'Outline Secondary', 'delennerd-elements' ),
                     'outline-success' => __( 'Outline Success', 'delennerd-elements' ),
                     'outline-danger' => __( 'Outline Danger', 'delennerd-elements' ),
                     'outline-warning' => __( 'Outline Warning', 'delennerd-elements' ),
@@ -575,10 +577,12 @@ class BootstrapCard extends Widget_Base {
     ?>
         <div class="bs-card-wrapper card">
 
+            <?php if ( ! empty($settings['image']['url']) ) : ?>
             <div class="widget-image card-img-top" <?php echo $this->get_render_attribute_string( 'image' ); ?>>
                 <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'image_dimension', 'image' );
                 ?>
             </div>
+            <?php endif; ?>
 
             <div class="card-body">
                 <h5 class="widget-title card-title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h5>
@@ -593,8 +597,8 @@ class BootstrapCard extends Widget_Base {
                 </div>
                 <?php endif; ?>
             </div><!-- end .card-body -->
-        </div>
 
+        </div>
     <?php
     }
 
@@ -635,15 +639,15 @@ class BootstrapCard extends Widget_Base {
 
         <div class="card">
 
+            <# if ( image_url.length > 0 ) { #>
             <div class="widget-image card-img-top">
                 <img src="{{{ image_url }}}" alt="">
             </div>
+            <# } #>
 
             <div class="card-body">
                 
-                <#
-                print( '<h5 class="widget-title card-title">' + settings.title + '</h5>' );
-                #>
+                <# print( '<h5 class="widget-title card-title">' + settings.title + '</h5>' ); #>
 
                 <div class="widget-content card-text" {{{ view.getRenderAttributeString( 'content' ) }}}>
                     {{{ settings.content }}}
