@@ -647,16 +647,16 @@ class BootstrapCard extends Widget_Base {
 
             <div class="card-body">
                 
-                <# print( '<h5 class="widget-title card-title">' + settings.title + '</h5>' ); #>
+                <# print( '<h5 class="card-title">' + settings.title + '</h5>' ); #>
 
-                <div class="widget-content card-text" {{{ view.getRenderAttributeString( 'content' ) }}}>
+                <div class="card-text" {{{ view.getRenderAttributeString( 'content' ) }}}>
                     {{{ settings.content }}}
                 </div>
 
                 
                 <# if ( settings.button_text ) { #>
 
-                <div class="widget-button" {{{ view.getRenderAttributeString( 'button_text' ) }}}>
+                <div class="widget-button card-button" {{{ view.getRenderAttributeString( 'button_text' ) }}}>
                     <a {{{ view.getRenderAttributeString( 'buttonLink' ) }}}>{{{ settings.button_text }}}</a>
                 </div>
                 <# } #>
