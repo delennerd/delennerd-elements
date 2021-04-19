@@ -25,8 +25,8 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => '1.3',
+    'version' => '1.3.0.0',
     'aliases' => 
     array (
     ),
@@ -37,8 +37,8 @@ private static $installed = array (
   array (
     'delennerd/delennerd-elements' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => '1.3',
+      'version' => '1.3.0.0',
       'aliases' => 
       array (
       ),
