@@ -1,6 +1,8 @@
 <?php
 namespace DelennerdElements\Widgets;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
@@ -9,79 +11,25 @@ use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Scheme_Color;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/**
- * @since 1.1.0
- */
 class BootstrapCard extends Widget_Base {
 
-    /**
-     * Retrieve the widget name.
-     *
-     * @since 1.1.0
-     *
-     * @access public
-     *
-     * @return string Widget name.
-     */
     public function get_name() {
         return 'bootstrap-card';
     }
 
-    /**
-     * Retrieve the widget title.
-     *
-     * @since 1.1.0
-     *
-     * @access public
-     *
-     * @return string Widget title.
-     */
     public function get_title() {
         return __( 'BS Card', 'delennerd-elements' );
     }
 
-    /**
-     * Retrieve the widget icon.
-     *
-     * @since 1.1.0
-     *
-     * @access public
-     *
-     * @return string Widget icon.
-     */
     public function get_icon() {
         return 'eicon-icon-box';
     }
 
-    /**
-     * Retrieve the list of categories the widget belongs to.
-     *
-     * Used to determine where to display the widget in the editor.
-     *
-     * Note that currently Elementor supports only one category.
-     * When multiple categories passed, Elementor uses the first one.
-     *
-     * @since 1.1.0
-     *
-     * @access public
-     *
-     * @return array Widget categories.
-     */
     public function get_categories() {
         return [ 'delennerd' ];
     }
 
-    /**
-     * Register the widget controls.
-     *
-     * Adds different input fields to allow the user to change and customize the widget settings.
-     *
-     * @since 1.1.0
-     *
-     * @access protected
-     */
 	protected function _register_controls() {
         
         /***********************/
@@ -106,22 +54,16 @@ class BootstrapCard extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_group_control(
             Group_Control_Image_Size::get_type(),
-            //'image_dimension',
             [
-                'type' => Controls_Manager::SELECT,
                 'label' => __( 'Image size', 'delennerd-elements' ),
                 'name' => 'image_dimension', // // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `thumbnail_size` and `thumbnail_custom_dimension`.
-                'exclude' => [],
+                'exclude' => [
+                    '',
+                ],
                 'include' => [],
                 'default' => 'medium',
-                'options' => [
-                    'thumbnail'  => __( 'Thumbnail - 150 x 150', 'delennerd-elements' ),
-                    'medium' => __( 'Medium - 300 x 300', 'delennerd-elements' ),
-                    'medium_large' => __( 'Medium Large - 768 x 0', 'delennerd-elements' ),
-                    'custom' => __( 'Custom', 'delennerd-elements' ),
-                ],
             ]
         );
 
@@ -546,17 +488,8 @@ class BootstrapCard extends Widget_Base {
         );
 
         $this->end_controls_section();
-  }
+    }
 
-    /**
-     * Render the widget output on the frontend.
-     *
-     * Written in PHP and used to generate the final HTML.
-     *
-     * @since 1.1.0
-     *
-     * @access protected
-     */
  	protected function render() {
 		$settings = $this->get_settings_for_display();
 
@@ -602,15 +535,6 @@ class BootstrapCard extends Widget_Base {
     <?php
     }
 
-    /**
-     * Render the widget output in the editor.
-     *
-     * Written as a Backbone JavaScript template and used to generate the live preview.
-     *
-     * @since 1.1.0
-     *
-     * @access protected
-     */
     protected function content_template() {
     ?>
 		<#

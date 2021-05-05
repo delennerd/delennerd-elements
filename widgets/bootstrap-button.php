@@ -1,6 +1,8 @@
 <?php
 namespace DelennerdElements\Widgets;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
@@ -9,11 +11,7 @@ use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Scheme_Color;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/**
- * @since 1.1.0
- */
 class BootstrapButton extends Widget_Base {
 
     public function __construct( $data = [], $args = null ) {
@@ -29,72 +27,22 @@ class BootstrapButton extends Widget_Base {
 		return [ 'delennerd-elements-bs-buttons-widget-css' ];
 	}
 
-    /**
-     * Retrieve the widget name.
-     *
-     * @since 1.1.0
-     *
-     * @access public
-     *
-     * @return string Widget name.
-     */
     public function get_name() {
         return 'bootstrap-button';
     }
 
-    /**
-     * Retrieve the widget title.
-     *
-     * @since 1.1.0
-     *
-     * @access public
-     *
-     * @return string Widget title.
-     */
     public function get_title() {
         return __( 'Bootstrap Button', 'delennerd-elements' );
     }
 
-    /**
-     * Retrieve the widget icon.
-     *
-     * @since 1.1.0
-     *
-     * @access public
-     *
-     * @return string Widget icon.
-     */
     public function get_icon() {
         return 'eicon-button';
     }
 
-    /**
-     * Retrieve the list of categories the widget belongs to.
-     *
-     * Used to determine where to display the widget in the editor.
-     *
-     * Note that currently Elementor supports only one category.
-     * When multiple categories passed, Elementor uses the first one.
-     *
-     * @since 1.1.0
-     *
-     * @access public
-     *
-     * @return array Widget categories.
-     */
     public function get_categories() {
         return [ 'delennerd' ];
     }
 
-    /**
-     * Register the widget controls.
-     *
-     * Adds different input fields to allow the user to change and customize the widget settings.
-     *
-     * @since 1.1.0
-     *
-     * @access protected
-     */
 	protected function _register_controls() {
 
         /***********************/
@@ -273,15 +221,6 @@ class BootstrapButton extends Widget_Base {
         $this->end_controls_section();
     }
 
-    /**
-     * Render the widget output on the frontend.
-     *
-     * Written in PHP and used to generate the final HTML.
-     *
-     * @since 1.1.0
-     *
-     * @access protected
-     */
  	protected function render() {
 		$settings = $this->get_settings_for_display();
 
@@ -334,14 +273,11 @@ class BootstrapButton extends Widget_Base {
                 if ( ! empty( $item['link']['url'] ) ) {
                     $link_key = 'link_' . $index;
 
-                    if ( !empty($item['link_custom_target']) ) 
-                    {
-                        if ( !empty($item['link']['custom_attributes']) ) 
-                        {
+                    if ( !empty($item['link_custom_target']) ) {
+                        if ( !empty($item['link']['custom_attributes']) ) {
                             $item['link']['custom_attributes'] .= ',target|' . $item['link_custom_target'];
                         }
-                        else 
-                        {
+                        else {
                             $item['link']['custom_attributes'] .= 'target|' . $item['link_custom_target'];
                         }
                     }
@@ -352,36 +288,22 @@ class BootstrapButton extends Widget_Base {
                 }
 
                 echo $item['text'];
+                
+                if (! empty($item['link']['url'])) {
+                    echo '</a>';
+                }
 
                 ?>
 
-                <?php if ( ! empty( $item['link']['url'] ) ) : ?>
-                    </a>
-                <?php endif; ?>
-
             </li>
                 
-            <?php
-
-            endforeach;
-
-            ?>
+            <?php endforeach; ?>
 
         </ul>
+    <?php
 
-        <?php
+    }
 
-  }
-
-    /**
-     * Render the widget output in the editor.
-     *
-     * Written as a Backbone JavaScript template and used to generate the live preview.
-     *
-     * @since 1.1.0
-     *
-     * @access protected
-     */
 	protected function _content_template() {
     ?>
 		<#

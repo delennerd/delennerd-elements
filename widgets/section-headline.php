@@ -1,6 +1,8 @@
 <?php
 namespace DelennerdElements\Widgets;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
@@ -9,96 +11,50 @@ use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Scheme_Color;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/**
- * @since 1.1.0
- */
 class SectionHeadline extends Widget_Base
 {
-
-    /**
-     * Retrieve the widget name.
-     *
-     * @since 1.1.0
-     *
-     * @access public
-     *
-     * @return string Widget name.
-     */
     public function get_name()
     {
         return 'section-headline';
     }
 
-    /**
-     * Retrieve the widget title.
-     *
-     * @since 1.1.0
-     *
-     * @access public
-     *
-     * @return string Widget title.
-     */
     public function get_title()
     {
         return __('Section Headline', 'delennerd-elements');
     }
 
-    /**
-     * Retrieve the widget icon.
-     *
-     * @since 1.1.0
-     *
-     * @access public
-     *
-     * @return string Widget icon.
-     */
     public function get_icon()
     {
         return 'eicon-t-letter';
     }
 
-    /**
-     * Retrieve the list of categories the widget belongs to.
-     *
-     * Used to determine where to display the widget in the editor.
-     *
-     * Note that currently Elementor supports only one category.
-     * When multiple categories passed, Elementor uses the first one.
-     *
-     * @since 1.1.0
-     *
-     * @access public
-     *
-     * @return array Widget categories.
-     */
     public function get_categories()
     {
         return [ 'delennerd' ];
     }
 
     public function get_keywords() {
-		return [ 'heading', 'title', 'text', 'section', 'abschnitt' ];
+		return [ 
+            'heading',
+            'title',
+            'subtitle',
+            'text',
+            'section',
+            'abschnitt'
+        ];
 	}
 
-    /**
-     * Register the widget controls.
-     *
-     * Adds different input fields to allow the user to change and customize the widget settings.
-     *
-     * @since 1.1.0
-     *
-     * @access protected
-     */
-	protected function register_controls() {
+	protected function _register_controls() {
         
-        /*************************/
-        /** SECTION: Content
-        *************************/
+        /**
+         * -------------------------------------------
+         * Tab Content (Section Headline Content)
+         * -------------------------------------------
+         */
 
         $this->start_controls_section(
-            'section_content',
+            'dlme_headline_content_settings',
             [
                 'label' => __( 'Content', 'delennerd-elements' ),
             ]
@@ -134,9 +90,11 @@ class SectionHeadline extends Widget_Base
 
         $this->end_controls_section();
 
-        /*************************/
-        /** STYLE: Global
-        *************************/
+        /**
+         * -------------------------------------------
+         * Tab Style (Global Style)
+         * -------------------------------------------
+         */
 
         $this->start_controls_section(
 			'headline_style_section',
@@ -146,11 +104,13 @@ class SectionHeadline extends Widget_Base
 			]
 		);
 
-        $this->add_control(
+        $this->add_responsive_control(
             'headline_horizontal_align',
             [
                 'label' => __( 'Alignment', 'delennerd-elements' ),
                 'type' => \Elementor\Controls_Manager::CHOOSE,
+                'label_block' => false,
+                'default' => 'left',
                 'options' => [
                     'left' => [
                         'title' => __( 'Left', 'delennerd-elements' ),
@@ -165,7 +125,6 @@ class SectionHeadline extends Widget_Base
                         'icon' => 'fa fa-align-right',
                     ]
                 ],
-                'default' => 'left',
                 'toggle' => true,
                 'selectors' => [
                     '{{WRAPPER}} .widget-title' => 'text-align: {{VALUE}}',
@@ -173,11 +132,23 @@ class SectionHeadline extends Widget_Base
             ]
         );
 
+        $this->add_control(
+            'dlmel_sh_custom_css',
+            [
+                'label' => __( 'Headline class', 'delennerd-elements' ),
+                'type' => Controls_Manager::TEXTAREA,
+                'label_block' => true,
+                'default' => 'mb-5',
+            ]
+        );
+
         $this->end_controls_section();
 
-        /*************************/
-        /** STYLE: Title
-        *************************/
+        /**
+         * -------------------------------------------
+         * Tab Style (Title Style)
+         * -------------------------------------------
+         */
 
         $this->start_controls_section(
 			'title_style_section',
@@ -252,9 +223,11 @@ class SectionHeadline extends Widget_Base
 
         $this->end_controls_section();
 
-        /*************************/
-        /** STYLE: Subtitle
-        *************************/
+        /**
+         * -------------------------------------------
+         * Tab Style (Subtitle Style)
+         * -------------------------------------------
+         */
 
         $this->start_controls_section(
 			'subtitle_style_section',
@@ -389,17 +362,8 @@ class SectionHeadline extends Widget_Base
         );
 
 		$this->end_controls_section();
-  }
+    }
 
-    /**
-     * Render the widget output on the frontend.
-     *
-     * Written in PHP and used to generate the final HTML.
-     *
-     * @since 1.1.0
-     *
-     * @access protected
-     */
  	protected function render() {
 		$settings = $this->get_settings_for_display();
 
@@ -423,6 +387,9 @@ class SectionHeadline extends Widget_Base
         
         if ( ! empty( $settings['headline_horizontal_align'] ) ) 
             $this->add_render_attribute( 'headline', 'class', 'text-' . $settings['headline_horizontal_align'] );
+
+        if ( ! empty( $settings['dlmel_sh_custom_css'] ) ) 
+            $this->add_render_attribute( 'headline', 'class', $settings['dlmel_sh_custom_css'] );
         
 
         /************
@@ -508,15 +475,6 @@ class SectionHeadline extends Widget_Base
     <?php
     }
 
-    /**
-     * Render the widget output in the editor.
-     *
-     * Written as a Backbone JavaScript template and used to generate the live preview.
-     *
-     * @since 1.1.0
-     *
-     * @access protected
-     */
     protected function content_template() {
     ?>
         <#
@@ -540,6 +498,12 @@ class SectionHeadline extends Widget_Base
                     ]
                 }
             );
+
+            if ( settings.headline_horizontal_align != '' ) 
+                view.addRenderAttribute( 'headline', 'class', 'text-' + settings.headline_horizontal_align );
+
+            if ( settings.dlmel_sh_custom_css != '' ) 
+                view.addRenderAttribute( 'headline', 'class', settings.dlmel_sh_custom_css );
 
             /************
             /** Title
