@@ -27,6 +27,9 @@ No, you must implement it in your theme.
 
 == Changelog ==
 
+= 1.3.2 05/05/2021 =
+* Fixed image size at bootstrap card
+
 = 1.3 18/04/2021 =
 * Added Flipbox
 * Added Section headline
