@@ -7,8 +7,7 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
-use Elementor\Scheme_Color;
+use Elementor\Core\Schemes\Color;
 use Elementor\Group_Control_Image_Size;
 
 
@@ -273,8 +272,8 @@ class Flipbox extends Widget_Base {
                 'label' => __( 'Background color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
                 'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
+                    'type' => Color::get_type(),
+                    'value' => Color::COLOR_1,
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .flipbox__front' => 'background-color: {{VALUE}}',
@@ -302,8 +301,8 @@ class Flipbox extends Widget_Base {
                 'label' => __( 'Background color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
                 'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
+                    'type' => Color::get_type(),
+                    'value' => Color::COLOR_1,
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .flipbox__back' => 'background-color: {{VALUE}}',
@@ -323,6 +322,10 @@ class Flipbox extends Widget_Base {
 
         $this->add_render_attribute( 'flipbox', 'class', 'flipbox' );
 
+        $has_image_or_icon = $settings['front_image_icon'] == 'image' || $settings['front_image_icon'] == 'icon';
+        $is_image = $settings['front_image_icon'] == 'image';
+        $is_icon = $settings['front_image_icon'] == 'icon';
+
         /************
         /** Front side
         ************/
@@ -335,101 +338,60 @@ class Flipbox extends Widget_Base {
             $this->add_render_attribute( 'flipbox', 'class', 'flipbox--has-bg-image' );
         }
 
-        $this->add_render_attribute( 'front_title', 'class', 'flipbox__title' );
-        $this->add_render_attribute( 'front_text', 'class', 'flipbox__content' );
-
         /************
         /** Back side
         ************/
+
         $this->add_render_attribute( 'flipbox_back', 'class', 'flipbox__back' );
-        $this->add_render_attribute( 'back_title', 'class', 'flipbox__title' );
-        $this->add_render_attribute( 'back_text', 'class', 'flipbox__content' );
 
     ?>
-
          <div <?php echo $this->get_render_attribute_string( 'flipbox' ); ?>>
-
             <div <?php echo $this->get_render_attribute_string( 'flipbox_front' ); ?>>
-
                 <div class="flipbox__inner">
-
-                    <?php if ( $settings['front_image_icon'] == 'image' || $settings['front_image_icon'] == 'icon' ) : ?>
-
-                    <div class="flipbox__image">
-
-                        <?php if ( $settings['front_image_icon'] == 'image' ) : ?>
-
-                            <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'front_image_dimension', 'front_image' ); ?>
-
-                        <?php endif; ?>
-
-                        <?php if ( $settings['front_image_icon'] == 'icon' ) : ?>
-
-                            <?php if ( ! is_array($settings['front_icon']['value']) ) : ?>
-
-                                <?php \Elementor\Icons_Manager::render_icon( $settings['front_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-3x' ] ); ?>
-
-                            <?php else : ?>
-
-                                <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, '300x300', 'front_icon' ); ?>
-
-                                <img src="<?php echo $settings['front_icon']['value']['url'] ?>" alt="<?php echo $settings['front_title'] ?>">
-
+                    <?php if ( $has_image_or_icon ) : ?>
+                        <div class="flipbox__image">
+                            <?php if ( $is_image ) : ?>
+                                <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'front_image_dimension', 'front_image' ); ?>
                             <?php endif; ?>
-
-                        <?php endif; ?>
-
-                    </div>
-
+                            <?php if ( $is_icon ) : ?>
+                                <?php if ( ! is_array($settings['front_icon']['value']) ) : ?>
+                                    <?php \Elementor\Icons_Manager::render_icon( $settings['front_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-3x' ] ); ?>
+                                <?php else : ?>
+                                    <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, '300x300', 'front_icon' ); ?>
+                                    <img src="<?php echo $settings['front_icon']['value']['url'] ?>" alt="<?php echo $settings['front_title'] ?>">
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        </div>
                     <?php endif; ?>
-
-                    <div <?php echo $this->get_render_attribute_string( 'front_title' ); ?>>
-                        
+                    <div class="flipbox__title" <?php echo $this->get_render_attribute_string( 'front_title' ); ?>>
                         <?php echo sprintf( 
                                 '<h3 %1$s>%2$s</h3>', 
                                 'class="title"',
                                 $settings['front_title'] 
                         ); ?>
-
                     </div>
-
-                    <div <?php echo $this->get_render_attribute_string( 'front_text' ); ?>>
-                        
+                    <div class="flipbox__content" <?php echo $this->get_render_attribute_string( 'front_text' ); ?>>
                         <?php echo $settings['front_text']; ?>
-
                     </div>
-
                 </div>
-
             </div>
-            
             <div <?php echo $this->get_render_attribute_string( 'flipbox_back' ); ?>>
-
                 <div class="flipbox__inner">
-
-                    <div <?php echo $this->get_render_attribute_string( 'back_title' ); ?>>
-                        
-                            <?php echo sprintf( 
-                                '<h3 %1$s>%2$s</h3>', 
-                                'class="title"',
-                                $settings['back_title'] 
+                    <div class="flipbox__title" <?php echo $this->get_render_attribute_string( 'flipbox_back' ); ?>>
+                        <?php echo sprintf( 
+                            '<h3 %1$s>%2$s</h3>',
+                            'class="title"',
+                            $settings['back_title']
                         ); ?>
-
                     </div>
-
-                    <div <?php echo $this->get_render_attribute_string( 'flipbox__content' ); ?>>
-                        
+                    <div class="flipbox__content" <?php echo $this->get_render_attribute_string( 'back_text' ); ?>>
                         <?php echo $settings['back_text']; ?>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
+        <?php
 
-    <?php
     }
 
     protected function content_template() {
@@ -474,51 +436,37 @@ class Flipbox extends Widget_Base {
             ************/
 
             view.addRenderAttribute( 'flipbox_back', 'class', 'flipbox__back' );            
-            view.addRenderAttribute( 'back_title', 'class', 'flipbox__back' );
-            view.addRenderAttribute( 'back_text', 'class', 'flipbox__back' );
         #>
 
         <div {{{ view.getRenderAttributeString( 'flipbox' ) }}}>
 
             <div {{{ view.getRenderAttributeString( 'flipbox_front' ) }}}>
                 <div class="flipbox__inner">
-
                     <# if ( frontImageIcon == 'image' || frontImageIcon == 'icon' ) { #>
-
-                    <div class="flipbox__image">
-
-                        <# if ( frontImageIcon == 'image' ) { #>
-                            <img src="{{{ frontImageUrl }}}" alt="">
-                        <# } #>
-
-                        <# if ( frontImageIcon == 'icon' ) { #>
-                            <# if ( frontIcon.value.url == 'undefined' ) { #>
-
-                                <i class="fa-3x {{{ frontIcon.value }}}"></i>
-
-                            <# } else { #>
-
-                                <img src="{{{ frontIcon.value.url }}}" alt="{{{ frontTitle }}}">
-
+                        <div class="flipbox__image">
+                            <# if ( frontImageIcon == 'image' ) { #>
+                                <img src="{{{ frontImageUrl }}}" alt="">
                             <# } #>
-                        <# } #>
-                        
-                    </div>
+                            <# if ( frontImageIcon == 'icon' ) { #>
+                                <# if ( frontIcon.value.url == 'undefined' ) { #>
+                                    <i class="fa-3x {{{ frontIcon.value }}}"></i>
+                                <# } else { #>
+                                    <img src="{{{ frontIcon.value.url }}}" alt="{{{ frontTitle }}}">
 
+                                <# } #>
+                            <# } #>
+                        </div>
                     <# } #>
-
-                    <div class="flipbox__title"><h3 class="title"> {{{ frontTitle }}} </h3></div>
-                    <div class="flipbox__content"> {{{ frontText }}} </div>
-
+                    <div class="flipbox__title" {{{ view.getRenderAttributeString( 'front_title' ) }}}><h3 class="title"> {{{ frontTitle }}} </h3></div>
+                    <div class="flipbox__content" {{{ view.getRenderAttributeString( 'front_text' ) }}}> {{{ frontText }}} </div>
                 </div>
             </div>
-
             <div {{{ view.getRenderAttributeString( 'flipbox_back' ) }}}>
                 <div class="flipbox__inner">
-
-                    <div class="flipbox__title"><h3 class="title"> {{{ backTitle }}} </h3></div>
-                    <div class="flipbox__content"> {{{ backText }}} </div>
-
+                    <div class="flipbox__title" {{{ view.getRenderAttributeString( 'back_title' ) }}}>
+                        <h3 class="title"> {{{ backTitle }}} </h3>
+                    </div>
+                    <div class="flipbox__content" {{{ view.getRenderAttributeString( 'back_text' ) }}}>{{{ backText }}}</div>
                 </div>
             </div>
         

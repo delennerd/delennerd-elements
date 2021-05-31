@@ -7,9 +7,7 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Scheme_Color;
 
 
 class BootstrapButton extends Widget_Base {

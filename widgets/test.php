@@ -5,7 +5,7 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
+use Elementor\Core\Schemes\Typography;
 use Elementor\Group_Control_Image_Size;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -239,7 +239,7 @@ class Test extends Widget_Base {
 		  [
 		    'name'     => 'content_typography',
 		    'label'    => __( 'Typography', 'delennerd-elements' ),
-		    'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+		    'scheme'   => Typography::TYPOGRAPHY_1,
 		    'selector' => '{{WRAPPER}} .title',
 		    'fields_options' => [
 		      'letter_spacing' => [

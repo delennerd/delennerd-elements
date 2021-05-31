@@ -7,9 +7,8 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
+use Elementor\Core\Schemes\Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Scheme_Color;
 
 
 class SectionHeadline extends Widget_Base
@@ -138,7 +137,7 @@ class SectionHeadline extends Widget_Base
                 'label' => __( 'Headline class', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'default' => 'mb-5',
+                'default' => '',
             ]
         );
 
