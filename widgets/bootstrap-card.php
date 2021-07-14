@@ -30,7 +30,7 @@ class BootstrapCard extends Widget_Base {
         return [ 'delennerd' ];
     }
 
-	protected function _register_controls() {
+	protected function register_controls() {
         
         /***********************/
         /** SECTION: Content **/
@@ -518,7 +518,7 @@ class BootstrapCard extends Widget_Base {
             <?php endif; ?>
 
             <div class="card-body">
-                <h5 class="widget-title card-title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h5>
+                <div class="widget-title card-title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></div>
 
                 <div class="widget-content card-text" <?php echo $this->get_render_attribute_string( 'content' ); ?>>
                     <?php echo $settings['content']; ?>
@@ -571,7 +571,7 @@ class BootstrapCard extends Widget_Base {
 
             <div class="card-body">
                 
-                <# print( '<h5 class="card-title">' + settings.title + '</h5>' ); #>
+                <# print( '<div class="card-title">' + settings.title + '</div>' ); #>
 
                 <div class="card-text" {{{ view.getRenderAttributeString( 'content' ) }}}>
                     {{{ settings.content }}}

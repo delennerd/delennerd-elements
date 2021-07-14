@@ -30,7 +30,7 @@ class ImageTextBox extends Widget_Base {
         return [ 'delennerd' ];
     }
 
-	protected function _register_controls() {
+	protected function register_controls() {
         
         /***********************/
         /** SECTION: Content **/
@@ -545,7 +545,7 @@ class ImageTextBox extends Widget_Base {
             <img src="{{{ image_url }}}" alt="">
         </div>
 
-		<h4 class="widget-title" {{{ view.getRenderAttributeString( 'title' ) }}}>{{{ settings.title }}}</h4>
+		<div class="widget-title" {{{ view.getRenderAttributeString( 'title' ) }}}>{{{ settings.title }}}</div>
 
 		<div class="widget-content" {{{ view.getRenderAttributeString( 'content' ) }}}>{{{ settings.content }}}</div>
 

@@ -44,7 +44,7 @@ class Flipbox extends Widget_Base {
         ];
 	}
 
-    protected function _register_controls() {
+    protected function register_controls() {
 
         /***********************/
         /** TOGGLE: Front side **/
@@ -86,21 +86,16 @@ class Flipbox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_group_control(
             Group_Control_Image_Size::get_type(),
             [
-                'type' => Controls_Manager::SELECT,
                 'label' => __( 'Image size', 'delennerd-elements' ),
                 'name' => 'front_image_dimension', // // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `thumbnail_size` and `thumbnail_custom_dimension`.
-                'exclude' => [],
+                'exclude' => [
+                    '',
+                ],
                 'include' => [],
                 'default' => 'medium',
-                'options' => [
-                    'thumbnail'  => __( 'Thumbnail - 150 x 150', 'delennerd-elements' ),
-                    'medium' => __( 'Medium - 300 x 300', 'delennerd-elements' ),
-                    'medium_large' => __( 'Medium Large - 768 x 0', 'delennerd-elements' ),
-                    'custom' => __( 'Custom', 'delennerd-elements' ),
-                ],
                 'condition' => [
                     'front_image_icon' => [ 'image', 'bg-image' ],
                 ],
@@ -333,7 +328,8 @@ class Flipbox extends Widget_Base {
         $this->add_render_attribute( 'flipbox_front', 'class', 'flipbox__front' );
 
         if ( $settings['front_image_icon'] == 'bg-image' ) {
-            $frontImageBgUrl = wp_get_attachment_image_url( $settings['front_image']['id'], 'medium_large' );
+            // $frontImageBgUrl = wp_get_attachment_image_url( $settings['front_image']['id'], 'medium_large' );
+            $frontImageBgUrl = Group_Control_Image_Size::get_attachment_image_src( $settings['front_image']['id'], 'front_image_dimension', $settings );
             $this->add_render_attribute( 'flipbox_front', 'style', 'background-image: url('. $frontImageBgUrl .')' );
             $this->add_render_attribute( 'flipbox', 'class', 'flipbox--has-bg-image' );
         }
@@ -348,24 +344,26 @@ class Flipbox extends Widget_Base {
          <div <?php echo $this->get_render_attribute_string( 'flipbox' ); ?>>
             <div <?php echo $this->get_render_attribute_string( 'flipbox_front' ); ?>>
                 <div class="flipbox__inner">
-                    <?php if ( $has_image_or_icon ) : ?>
+                    <?php if ( $has_image_or_icon && !empty($settings['front_icon']['value']) ) : ?>
                         <div class="flipbox__image">
+
                             <?php if ( $is_image ) : ?>
                                 <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'front_image_dimension', 'front_image' ); ?>
                             <?php endif; ?>
+
                             <?php if ( $is_icon ) : ?>
-                                <?php if ( ! is_array($settings['front_icon']['value']) ) : ?>
-                                    <?php \Elementor\Icons_Manager::render_icon( $settings['front_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-3x' ] ); ?>
-                                <?php else : ?>
-                                    <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, '300x300', 'front_icon' ); ?>
+                                <?php if ( is_array($settings['front_icon']['value']) ) : ?>
                                     <img src="<?php echo $settings['front_icon']['value']['url'] ?>" alt="<?php echo $settings['front_title'] ?>">
+                                <?php else : ?>
+                                    <?php \Elementor\Icons_Manager::render_icon( $settings['front_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-3x' ] ); ?>
                                 <?php endif; ?>
                             <?php endif; ?>
+
                         </div>
                     <?php endif; ?>
                     <div class="flipbox__title" <?php echo $this->get_render_attribute_string( 'front_title' ); ?>>
                         <?php echo sprintf( 
-                                '<h3 %1$s>%2$s</h3>', 
+                                '<h4 %1$s>%2$s</h4>', 
                                 'class="title"',
                                 $settings['front_title'] 
                         ); ?>
@@ -379,7 +377,7 @@ class Flipbox extends Widget_Base {
                 <div class="flipbox__inner">
                     <div class="flipbox__title" <?php echo $this->get_render_attribute_string( 'flipbox_back' ); ?>>
                         <?php echo sprintf( 
-                            '<h3 %1$s>%2$s</h3>',
+                            '<h4 %1$s>%2$s</h4>',
                             'class="title"',
                             $settings['back_title']
                         ); ?>
@@ -442,17 +440,16 @@ class Flipbox extends Widget_Base {
 
             <div {{{ view.getRenderAttributeString( 'flipbox_front' ) }}}>
                 <div class="flipbox__inner">
-                    <# if ( frontImageIcon == 'image' || frontImageIcon == 'icon' ) { #>
+                    <# if ( (frontImageIcon == 'image' || frontImageIcon == 'icon') && frontIcon.value != "" ) { #>
                         <div class="flipbox__image">
                             <# if ( frontImageIcon == 'image' ) { #>
                                 <img src="{{{ frontImageUrl }}}" alt="">
                             <# } #>
                             <# if ( frontImageIcon == 'icon' ) { #>
-                                <# if ( frontIcon.value.url == 'undefined' ) { #>
-                                    <i class="fa-3x {{{ frontIcon.value }}}"></i>
-                                <# } else { #>
+                                <# if ( frontIcon.value.url != undefined ) { #>
                                     <img src="{{{ frontIcon.value.url }}}" alt="{{{ frontTitle }}}">
-
+                                <# } else { #>
+                                    <i class="fa-3x {{{ frontIcon.value }}}"></i>
                                 <# } #>
                             <# } #>
                         </div>

@@ -27,6 +27,10 @@ No, you must implement it in your theme.
 
 == Changelog ==
 
+= 1.3.4 14/07/2021 =
+* Fixed image size bug at flipbox
+* Changed headline tags to div
+
 = 1.3.3 31/05/2021 =
 * Elementor\Scheme_Color was deprecated; Changed to Elementor\Core\Schemes\Color
 

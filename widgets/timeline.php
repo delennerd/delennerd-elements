@@ -75,7 +75,7 @@ class Timeline extends Widget_Base {
         return [ 'delennerd' ];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
 
         /***********************/
         /** SECTION: Content **/
@@ -286,6 +286,24 @@ class Timeline extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
+
+        $this->add_control(
+			'company_html_tag',
+			[
+				'label' => __( 'HTML Tag', 'elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'h1' => 'H1',
+					'h2' => 'H2',
+					'h3' => 'H3',
+					'h4' => 'H4',
+					'h5' => 'H5',
+					'h6' => 'H6',
+					'div' => 'div',
+				],
+				'default' => 'h4',
+			]
+		);
 
         $this->add_control(
             'company_color',
@@ -505,6 +523,8 @@ class Timeline extends Widget_Base {
 
         $settings = $this->get_settings_for_display();
 
+        $this->add_render_attribute( 'company', 'class', 'list-company' );
+
         if ( $settings['timeline_list'] ) :
     ?>
 
@@ -523,13 +543,24 @@ class Timeline extends Widget_Base {
                             <div class="timeline-box-inner wow fadeIn<?php echo ucfirst($pos) ?>" data-wow-offset="50">
                                 <span class="arrow"></span>
                                 <div class="list-date"><?php echo $item['list_date'] ?></div>
-                                <h3 class="list-company"><?php echo $item['list_company'] ?></h3>
-                                <h4 class="list-job"><?php echo $item['list_job'] ?></h4>
+                                
+                                <?php if ( !empty($item['list_company']) ) { 
+                                    echo sprintf( 
+                                        '<%1$s %2$s>%3$s</%1$s>', 
+                                        $settings['company_html_tag'], 
+                                        $this->get_render_attribute_string( 'company' ), 
+                                        $item['list_company'] 
+                                    );
+                                } ?>
+                                <?php if ( !empty($item['list_job']) ) : ?>
+                                    <div class="list-job"><?php echo $item['list_job'] ?></div>
+                                <?php endif; ?>
                                 <div class="list-content"><?php echo nl2br($item['list_content']) ?></div>
                             </div>
                         </div>
 
-                    <?php $i++; endforeach; ?>
+                    <?php $i++; 
+                        endforeach; ?>
 
                 </div>
             </div>
@@ -545,6 +576,9 @@ class Timeline extends Widget_Base {
 	protected function _content_template() {
     ?>
 		<#
+            view.addRenderAttribute( 'company', 'class', [
+                'list-company'
+            ] );
 		#>
         
         <div class="delennerd-timeline-wrapper">
@@ -583,9 +617,9 @@ class Timeline extends Widget_Base {
                             <span class="arrow"></span>
                             <div class="list-date">{{{ item.list_date }}}</div>
 
-                            <h3 class="list-company">{{{ item.list_company }}}</h3>
+                            print( '<' + settings.company_html_tag  + ' ' + view.getRenderAttributeString( 'company' ) + '>' + title + '</' + item.list_company + '>' );
 
-                            <h4 class="list-job">{{{ item.list_job }}}</h4>
+                            <div class="list-job">{{{ item.list_job }}}</div>
 
                             <div class="list-content">{{{ item.list_content }}}</div>
                         </div>

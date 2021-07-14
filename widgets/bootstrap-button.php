@@ -41,7 +41,7 @@ class BootstrapButton extends Widget_Base {
         return [ 'delennerd' ];
     }
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
         /***********************/
         /** SECTION: Button settings **/

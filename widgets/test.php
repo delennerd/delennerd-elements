@@ -81,7 +81,7 @@ class Test extends Widget_Base {
    *
    * @access protected
    */
-	protected function _register_controls() {
+	protected function register_controls() {
         $this->start_controls_section(
         'section_content',
             [
@@ -274,7 +274,7 @@ class Test extends Widget_Base {
         <div class="image">
             <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'image' ); ?>
         </div>
-		<h2 class="title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
+		<div class="title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></div>
 		<div <?php echo $this->get_render_attribute_string( 'description' ); ?>><?php echo $settings['description']; ?></div>
 		<div class="content" <?php echo $this->get_render_attribute_string( 'content' ); ?>><?php echo $settings['content']; ?></div>
 
