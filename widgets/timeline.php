@@ -617,7 +617,7 @@ class Timeline extends Widget_Base {
                             <span class="arrow"></span>
                             <div class="list-date">{{{ item.list_date }}}</div>
 
-                            print( '<' + settings.company_html_tag  + ' ' + view.getRenderAttributeString( 'company' ) + '>' + title + '</' + item.list_company + '>' );
+                            <# print( '<' + settings.company_html_tag  + ' ' + view.getRenderAttributeString( 'company' ) + '>' + item.list_company + '</' + settings.company_html_tag + '>' ); #>
 
                             <div class="list-job">{{{ item.list_job }}}</div>
 

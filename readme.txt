@@ -27,6 +27,9 @@ No, you must implement it in your theme.
 
 == Changelog ==
 
+= 1.3.5 14/07/2021 =
+* Fixed little bug at timeline
+
 = 1.3.4 14/07/2021 =
 * Fixed image size bug at flipbox
 * Changed headline tags to div

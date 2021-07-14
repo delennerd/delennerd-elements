@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Delennerd Elements
  * Description: Delennerd Elements
- * Version:     1.3.4
+ * Version:     1.3.5
  * Author:      Pascal Lehnert
  * Author URI:  https://delennerd.de
  * Text Domain: delennerd-elements
