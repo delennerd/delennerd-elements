@@ -5,6 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
+use Elementor\Controls_Stack;
 use Elementor\Group_Control_Typography;
 use Elementor\Core\Schemes\Typography;
 use Elementor\Core\Schemes\Color;
@@ -573,7 +574,7 @@ class Timeline extends Widget_Base {
         endif;
     }
 
-	protected function _content_template() {
+	protected function content_template() {
     ?>
 		<#
             view.addRenderAttribute( 'company', 'class', [

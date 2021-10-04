@@ -5,6 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
+use Elementor\Controls_Stack;
 use Elementor\Utils;
 use Elementor\Group_Control_Typography;
 use Elementor\Core\Schemes\Typography;
