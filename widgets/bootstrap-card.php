@@ -5,7 +5,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-use Elementor\Controls_Stack;
 use Elementor\Utils;
 use Elementor\Group_Control_Typography;
 use Elementor\Core\Schemes\Typography;
@@ -526,7 +525,7 @@ class BootstrapCard extends Widget_Base {
                 </div>
 
                 <?php if ( $settings['button_text'] ) : ?>
-                <div class="widget-button">
+                <div class="widget-button card-button">
                     <a <?php echo $this->get_render_attribute_string( 'button_link' ); ?>><?php echo $settings['button_text']; ?></a>
                 </div>
                 <?php endif; ?>
