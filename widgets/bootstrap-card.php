@@ -32,9 +32,11 @@ class BootstrapCard extends Widget_Base {
 
 	protected function register_controls() {
         
-        /***********************/
-        /** SECTION: Content **/
-        /***********************/
+        /**
+         * -------------------------------------------
+         * Tab Content (Section Content)
+         * -------------------------------------------
+         */
 
         $this->start_controls_section(
             'section_content',
@@ -94,9 +96,11 @@ class BootstrapCard extends Widget_Base {
 
         $this->end_controls_section();
 
-        /***********************/
-        /** SECTION: Button **/
-        /***********************/
+        /**
+         * -------------------------------------------
+         * Tab Content (Button)
+         * -------------------------------------------
+         */
 
         $this->start_controls_section(
         'button_content',
@@ -168,9 +172,11 @@ class BootstrapCard extends Widget_Base {
 
         $this->end_controls_section();
 
-        /***********************/
-        /** STYLE: Image **/
-        /***********************/
+        /**
+         * -------------------------------------------
+         * Tab Style (Image Style)
+         * -------------------------------------------
+         */
 
         $this->start_controls_section(
 			'image_style_section',
@@ -201,9 +207,11 @@ class BootstrapCard extends Widget_Base {
 
         $this->end_controls_section();
 
-        /***********************/
-        /** STYLE: Title **/
-        /***********************/
+        /**
+         * -------------------------------------------
+         * Tab Style (Title Style)
+         * -------------------------------------------
+         */
 
 		$this->start_controls_section(
 			'title_style_section',
@@ -231,6 +239,24 @@ class BootstrapCard extends Widget_Base {
                 ],
             ]
         );
+
+        $this->add_control(
+			'title_html_tag',
+			[
+				'label' => __( 'HTML Tag', 'elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'h1' => 'H1',
+					'h2' => 'H2',
+					'h3' => 'H3',
+					'h4' => 'H4',
+					'h5' => 'H5',
+					'h6' => 'H6',
+					'div' => 'div',
+				],
+				'default' => 'div',
+			]
+		);
 
         $this->add_control(
             'title_color',
@@ -294,9 +320,11 @@ class BootstrapCard extends Widget_Base {
 
 		$this->end_controls_section();
 
-        /***********************/
-        /** STYLE: Content **/
-        /***********************/
+        /**
+         * -------------------------------------------
+         * Tab Style (Content Style)
+         * -------------------------------------------
+         */
 
         $this->start_controls_section(
 			'content_style_section',
@@ -372,9 +400,11 @@ class BootstrapCard extends Widget_Base {
 
         $this->end_controls_section();
 
-        /***********************/
-        /** STYLE: Button **/
-        /***********************/
+        /**
+         * -------------------------------------------
+         * Tab Style (Button Style)
+         * -------------------------------------------
+         */
 
         $this->start_controls_section(
 			'button_style_section',
@@ -415,7 +445,7 @@ class BootstrapCard extends Widget_Base {
         );
 
         $this->add_control(
-            'css_class',
+            'button_css_class',
             [
                 'label' => __( 'Button Style', 'delennerd-elements' ),
                 'type' => Controls_Manager::SELECT,
@@ -438,6 +468,20 @@ class BootstrapCard extends Widget_Base {
                     'outline-success' => __( 'Outline Success', 'delennerd-elements' ),
                     'outline-danger' => __( 'Outline Danger', 'delennerd-elements' ),
                     'outline-warning' => __( 'Outline Warning', 'delennerd-elements' ),
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'button_size',
+            [
+                'label' => __( 'Button Style', 'delennerd-elements' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'primary',
+                'options' => [
+                    '' => __( 'Normal', 'delennerd-elements' ),
+                    'btn-sm' => __( 'Small', 'delennerd-elements' ),
+                    'btn-lg' => __( 'Large', 'delennerd-elements' ),
                 ],
             ]
         );
@@ -493,6 +537,15 @@ class BootstrapCard extends Widget_Base {
  	protected function render() {
 		$settings = $this->get_settings_for_display();
 
+        $this->add_render_attribute(
+            'title', [
+                'class' => [
+                    'widget-title', 
+                    'card-title',
+                ]
+            ]
+        );
+
         $this->add_render_attribute( 
             'button_link', 
             [   
@@ -500,7 +553,8 @@ class BootstrapCard extends Widget_Base {
                 'target' => $settings['link_target'],
                 'class' => [
                     'btn',
-                    'btn-' . $settings['css_class'],
+                    'btn-' . $settings['button_css_class'],
+                    $settings['button_size'],
                 ]
             ]
         );
@@ -518,7 +572,12 @@ class BootstrapCard extends Widget_Base {
             <?php endif; ?>
 
             <div class="card-body">
-                <div class="widget-title card-title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></div>
+                <?php echo sprintf( 
+                    '<%1$s %2$s>%3$s</%1$s>', 
+                    $settings['title_html_tag'], 
+                    $this->get_render_attribute_string( 'title' ), 
+                    $settings['title'] 
+                ); ?>
 
                 <div class="widget-content card-text" <?php echo $this->get_render_attribute_string( 'content' ); ?>>
                     <?php echo $settings['content']; ?>
@@ -538,6 +597,16 @@ class BootstrapCard extends Widget_Base {
     protected function content_template() {
     ?>
 		<#
+            view.addRenderAttribute(
+                'title',
+                {   
+                    'class': [ 
+                        'widget-title',
+                        'card-title'
+                    ]
+                }
+            );
+
             var image = {
                 id: settings.image.id,
                 url: settings.image.url,
@@ -548,40 +617,42 @@ class BootstrapCard extends Widget_Base {
             var image_url = elementor.imagesManager.getImageUrl( image );
 
             view.addRenderAttribute(
-                'buttonLink',
+                'button_link',
                 {   
                     'href': settings.link_href.url,
                     'target': settings.link_target,
                     'class': [ 
                         'btn',
-                        'btn-' + settings.css_class,
-                        settings.button_custom_css_class
+                        'btn-' + settings.button_css_class,
+                        settings.button_custom_css_class,
+                        settings.button_size
                     ]
                 }
             );
 		#>
 
-        <div class="card">
+        <div class="bs-card-wrapper card">
 
             <# if ( image_url.length > 0 ) { #>
-            <div class="widget-image card-img-top">
+            <div class="widget-image card-img-top" {{{ view.getRenderAttributeString( 'image' ) }}}>
                 <img src="{{{ image_url }}}" alt="">
             </div>
             <# } #>
 
             <div class="card-body">
-                
-                <# print( '<div class="card-title">' + settings.title + '</div>' ); #>
+                <#
+                print( '<' + settings.title_html_tag  + ' ' + view.getRenderAttributeString( 'title' ) + '>' + settings.title + '</' + settings.title_html_tag + '>' );
+                #>
 
-                <div class="card-text" {{{ view.getRenderAttributeString( 'content' ) }}}>
+                <div class="widget-content card-text" {{{ view.getRenderAttributeString( 'content' ) }}}>
                     {{{ settings.content }}}
                 </div>
 
                 
                 <# if ( settings.button_text ) { #>
 
-                <div class="widget-button card-button" {{{ view.getRenderAttributeString( 'button_text' ) }}}>
-                    <a {{{ view.getRenderAttributeString( 'buttonLink' ) }}}>{{{ settings.button_text }}}</a>
+                <div class="widget-button card-button">
+                    <a {{{ view.getRenderAttributeString( 'button_link' ) }}}>{{{ settings.button_text }}}</a>
                 </div>
                 <# } #>
 

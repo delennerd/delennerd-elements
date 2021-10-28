@@ -109,17 +109,17 @@ class SectionHeadline extends Widget_Base
                 'label' => __( 'Alignment', 'delennerd-elements' ),
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'label_block' => false,
-                'default' => 'left',
+                'default' => 'text-left',
                 'options' => [
-                    'left' => [
+                    'text-left' => [
                         'title' => __( 'Left', 'delennerd-elements' ),
                         'icon' => 'fa fa-align-left',
                     ],
-                    'center' => [
+                    'text-center' => [
                         'title' => __( 'Center', 'delennerd-elements' ),
                         'icon' => 'fa fa-align-center',
                     ],
-                    'right' => [
+                    'text-right' => [
                         'title' => __( 'Right', 'delennerd-elements' ),
                         'icon' => 'fa fa-align-right',
                     ]
@@ -369,23 +369,23 @@ class SectionHeadline extends Widget_Base
         $this->add_inline_editing_attributes( 'title' );
         $this->add_inline_editing_attributes( 'subtitle' );
 
-        // $this->add_render_attribute(
-        //     'headline_attr', [
-        //         'class' => [
-        //             'section-headline',
-        //             !empty($settings['headline_horizontal_align']) ? 'text-' . $settings['headline_horizontal_align'] : '',
-        //         ]
-        //     ]
-        // );
-
         /************
         /** Global
         /***********/
 
-        $this->add_render_attribute( 'headline', 'class', 'section-headline' );
+        $this->add_render_attribute(
+            'headline', [
+                'class' => [
+                    'section-headline',
+                    $settings['headline_horizontal_align'],
+                ]
+            ]
+        );
+
+        // $this->add_render_attribute( 'headline', 'class', 'section-headline' );
         
-        if ( ! empty( $settings['headline_horizontal_align'] ) ) 
-            $this->add_render_attribute( 'headline', 'class', 'text-' . $settings['headline_horizontal_align'] );
+        // if ( ! empty( $settings['headline_horizontal_align'] ) ) 
+        //     $this->add_render_attribute( 'headline', 'class', $settings['headline_horizontal_align'] );
 
         if ( ! empty( $settings['dlmel_sh_custom_css'] ) ) 
             $this->add_render_attribute( 'headline', 'class', $settings['dlmel_sh_custom_css'] );
@@ -411,7 +411,16 @@ class SectionHeadline extends Widget_Base
         /** Subtitle
         ************/
 
-        $this->add_render_attribute( 'subtitle', 'class', 'section-headline__subtitle' );
+        $this->add_render_attribute(
+            'subtitle', [
+                'class' => [
+                    'section-headline__subtitle',
+                    $settings['headline_horizontal_align'],
+                ]
+            ]
+        );
+
+        // $this->add_render_attribute( 'subtitle', 'class', 'section-headline__subtitle' );
 
         if ( ! empty( $settings['subtitle_font_size'] ) ) 
             $this->add_render_attribute( 'subtitle', 'class', 'section-headline__subtitle--font-' . $settings['subtitle_font_size'] );
@@ -419,8 +428,8 @@ class SectionHeadline extends Widget_Base
         if ( $settings['subtitle_color'] != 'inherit' ) 
             $this->add_render_attribute( 'subtitle', 'class', 'text-' . $settings['subtitle_color'] );
 
-        if ( ! empty( $settings['headline_horizontal_align'] ) ) 
-            $this->add_render_attribute( 'subtitle', 'class', 'text-' . $settings['headline_horizontal_align'] );
+        // if ( ! empty( $settings['headline_horizontal_align'] ) ) 
+        //     $this->add_render_attribute( 'subtitle', 'class', $settings['headline_horizontal_align'] );
 
         if ( $settings['subtitle_show_border'] == 'yes' ) 
             $this->add_render_attribute( 'subtitle', 'class', [
@@ -492,14 +501,10 @@ class SectionHeadline extends Widget_Base
                 {   
                     'class': [ 
                         'section-headline',
-                        settings.headline_horizontal_align,
-                        settings.headline_horizontal_align != '' ? 'text-' + settings.headline_horizontal_align : ''
+                        settings.headline_horizontal_align
                     ]
                 }
             );
-
-            if ( settings.headline_horizontal_align != '' ) 
-                view.addRenderAttribute( 'headline', 'class', 'text-' + settings.headline_horizontal_align );
 
             if ( settings.dlmel_sh_custom_css != '' ) 
                 view.addRenderAttribute( 'headline', 'class', settings.dlmel_sh_custom_css );
@@ -526,6 +531,7 @@ class SectionHeadline extends Widget_Base
             view.addRenderAttribute( 'subtitle', 'class', [
                 'section-headline__subtitle',
                 'subtitle--' + settings.subtitle_position,
+                settings.headline_horizontal_align
             ] );
 
             if ( settings.subtitle_font_size != '' ) 
@@ -533,9 +539,6 @@ class SectionHeadline extends Widget_Base
 
             if ( settings.subtitle_color != 'inherit' ) 
                 view.addRenderAttribute( 'subtitle', 'class', 'text-' + settings.subtitle_color );
-
-            if ( settings.headline_horizontal_align == 'center' ) 
-                view.addRenderAttribute( 'subtitle', 'class', 'text-center' );
 
             if ( settings.subtitle_show_border == 'yes' ) 
                 view.addRenderAttribute( 'subtitle', 'class', [
@@ -557,7 +560,6 @@ class SectionHeadline extends Widget_Base
                 view.addInlineEditingAttributes( 'subtitle' );
 
                 print( '<' + settings.subtitle_html_tag  + ' ' + view.getRenderAttributeString( 'subtitle' ) + '>' + subtitle + '</' + settings.subtitle_html_tag + '>' );
-
             }
 
             print( '<' + settings.title_html_tag  + ' ' + view.getRenderAttributeString( 'title' ) + '>' + title + '</' + settings.title_html_tag + '>' );
@@ -567,7 +569,6 @@ class SectionHeadline extends Widget_Base
                 view.addInlineEditingAttributes( 'subtitle' );
 
                 print( '<' + settings.subtitle_html_tag  + ' ' + view.getRenderAttributeString( 'subtitle' ) + '>' + subtitle + '</' + settings.subtitle_html_tag + '>' );
-
             }
             
             #>

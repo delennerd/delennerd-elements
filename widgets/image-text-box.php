@@ -532,7 +532,6 @@ class ImageTextBox extends Widget_Base {
                 {   
                     'href': settings.link_href.url,
                     'target': settings.link_target,
-
                     'class': [ 
                         'btn',
                         'btn-' + settings.css_class
@@ -541,7 +540,7 @@ class ImageTextBox extends Widget_Base {
             );
 		#>
 
-        <div class="widget-image">
+        <div class="widget-image" {{{ view.getRenderAttributeString( 'image' ) }}}>
             <img src="{{{ image_url }}}" alt="">
         </div>
 
@@ -549,7 +548,7 @@ class ImageTextBox extends Widget_Base {
 
 		<div class="widget-content" {{{ view.getRenderAttributeString( 'content' ) }}}>{{{ settings.content }}}</div>
 
-        <div class="widget-button" {{{ view.getRenderAttributeString('button_text') }}}>
+        <div class="widget-button">
             <a {{{ view.getRenderAttributeString( 'button_link' ) }}}>{{{ settings.button_text }}}</a>
         </div>
 
