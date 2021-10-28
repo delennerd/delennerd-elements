@@ -27,6 +27,9 @@ No, you must implement it in your theme.
 
 == Changelog ==
 
+= 1.4.1 28/10/2021 =
+* Fixed display error at font awesome icons
+
 = 1.3.5 14/07/2021 =
 * Fixed little bug at timeline
 

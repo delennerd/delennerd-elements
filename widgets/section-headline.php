@@ -109,19 +109,19 @@ class SectionHeadline extends Widget_Base
                 'label' => __( 'Alignment', 'delennerd-elements' ),
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'label_block' => false,
-                'default' => 'text-left',
+                'default' => 'left',
                 'options' => [
-                    'text-left' => [
+                    'left' => [
                         'title' => __( 'Left', 'delennerd-elements' ),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
-                    'text-center' => [
+                    'center' => [
                         'title' => __( 'Center', 'delennerd-elements' ),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
-                    'text-right' => [
+                    'right' => [
                         'title' => __( 'Right', 'delennerd-elements' ),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ]
                 ],
                 'toggle' => true,
@@ -377,7 +377,7 @@ class SectionHeadline extends Widget_Base
             'headline', [
                 'class' => [
                     'section-headline',
-                    $settings['headline_horizontal_align'],
+                    'text-' . $settings['headline_horizontal_align'],
                 ]
             ]
         );
@@ -415,7 +415,7 @@ class SectionHeadline extends Widget_Base
             'subtitle', [
                 'class' => [
                     'section-headline__subtitle',
-                    $settings['headline_horizontal_align'],
+                    'text-' . $settings['headline_horizontal_align'],
                 ]
             ]
         );
@@ -501,7 +501,7 @@ class SectionHeadline extends Widget_Base
                 {   
                     'class': [ 
                         'section-headline',
-                        settings.headline_horizontal_align
+                        'text-' + settings.headline_horizontal_align
                     ]
                 }
             );
@@ -531,7 +531,7 @@ class SectionHeadline extends Widget_Base
             view.addRenderAttribute( 'subtitle', 'class', [
                 'section-headline__subtitle',
                 'subtitle--' + settings.subtitle_position,
-                settings.headline_horizontal_align
+                'text-' + settings.headline_horizontal_align
             ] );
 
             if ( settings.subtitle_font_size != '' ) 

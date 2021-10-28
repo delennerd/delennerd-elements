@@ -257,15 +257,15 @@ class ImageTextBox extends Widget_Base {
                 'options' => [
                         'left' => [
                         'title' => __( 'Left', 'delennerd-elements' ),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                         'center' => [
                         'title' => __( 'Center', 'delennerd-elements' ),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                         'right' => [
                         'title' => __( 'Right', 'delennerd-elements' ),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ]
                 ],
                 'default' => 'center',
@@ -339,15 +339,15 @@ class ImageTextBox extends Widget_Base {
                 'options' => [
                         'left' => [
                         'title' => __( 'Left', 'delennerd-elements' ),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                         'center' => [
                         'title' => __( 'Center', 'delennerd-elements' ),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                         'right' => [
                         'title' => __( 'Right', 'delennerd-elements' ),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ]
                 ],
                 'default' => 'center',
@@ -454,15 +454,15 @@ class ImageTextBox extends Widget_Base {
                 'options' => [
                         'left' => [
                         'title' => __( 'Left', 'delennerd-elements' ),
-                        'icon' => 'fa fa-align-left',
+                        'icon' => 'eicon-text-align-left',
                     ],
                         'center' => [
                         'title' => __( 'Center', 'delennerd-elements' ),
-                        'icon' => 'fa fa-align-center',
+                        'icon' => 'eicon-text-align-center',
                     ],
                         'right' => [
                         'title' => __( 'Right', 'delennerd-elements' ),
-                        'icon' => 'fa fa-align-right',
+                        'icon' => 'eicon-text-align-right',
                     ]
                 ],
                 'default' => 'center',
