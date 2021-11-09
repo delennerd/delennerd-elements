@@ -17,7 +17,7 @@ class BootstrapButton extends Widget_Base {
 
         wp_register_style( 
             'delennerd-elements-bs-buttons-widget-css', 
-            DELENNERD_ELEMENTS_ASSETS_URL . '/css/bs-button.css', [], DELENNERD_ELEMENTS_VER
+            DELENNERD_ELEMENTS_ASSETS_URL . 'css/bs-button.css', [], DELENNERD_ELEMENTS_VER
         );
 	}
 

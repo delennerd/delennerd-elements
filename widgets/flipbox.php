@@ -34,7 +34,7 @@ class Flipbox extends Widget_Base {
 
         wp_register_style( 
             'delennerd-elements-flipbox-css', 
-            DELENNERD_ELEMENTS_ASSETS_URL . '/css/flipbox.css', [], DELENNERD_ELEMENTS_VER
+            DELENNERD_ELEMENTS_ASSETS_URL . 'css/flipbox.css', [], DELENNERD_ELEMENTS_VER
         );
 	}
 

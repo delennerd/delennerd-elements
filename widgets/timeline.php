@@ -31,7 +31,7 @@ class Timeline extends Widget_Base {
 
         wp_register_script( 
             'delennerd-elements-timeline-widget-script', 
-            DELENNERD_ELEMENTS_ASSETS_URL . '/js/timeline.js', [ 'jquery' ], DELENNERD_ELEMENTS_VER, true
+            DELENNERD_ELEMENTS_ASSETS_URL . 'js/timeline.js', [ 'jquery' ], DELENNERD_ELEMENTS_VER, true
         );
 
         wp_register_style( 
@@ -41,7 +41,7 @@ class Timeline extends Widget_Base {
 
         wp_register_style( 
             'delennerd-elements-timeline-widget-style', 
-            DELENNERD_ELEMENTS_ASSETS_URL . '/css/timeline.css', [], DELENNERD_ELEMENTS_VER
+            DELENNERD_ELEMENTS_ASSETS_URL . 'css/timeline.css', [], DELENNERD_ELEMENTS_VER
         );
 	}
 
