@@ -27,6 +27,9 @@ No, you must implement it in your theme.
 
 == Changelog ==
 
+= 1.4.3 16/11/2021 =
+* Rolled back css class text- for alignment in section headline
+
 = 1.4.1 28/10/2021 =
 * Fixed display error at font awesome icons
 
