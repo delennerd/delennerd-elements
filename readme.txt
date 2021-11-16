@@ -2,7 +2,7 @@
 Contributors: passl
 Tags: elementor, bootstrap, widgets
 Requires at least: 4.7
-Tested up to: 5.7
+Tested up to: 5.8.2
 Stable tag: 4.3
 Requires PHP: 7.0
 License: GPLv2 or later
