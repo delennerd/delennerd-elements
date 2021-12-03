@@ -27,6 +27,9 @@ No, you must implement it in your theme.
 
 == Changelog ==
 
+= 1.4.4 03/12/2021 =
+* Updated wpml-config to translate flipbox and timeline
+
 = 1.4.3 16/11/2021 =
 * Rolled back css class text- for alignment in section headline
 

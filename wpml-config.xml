@@ -29,5 +29,27 @@
                 <field type="Button: Link" editor_type="LINE" key_of="link">url</field>
             </fields-in-item>
         </widget>
+        <widget name="dlm-flipbox">
+            <conditions>
+                <condition key="widgetType">dlm-flipbox</condition>
+            </conditions>
+            <fields>
+                <field type="Flipbox: Front Title" editor_type="LINE">front_title</field>
+                <field type="Flipbox: Front Content" editor_type="VISUAL">front_text</field>
+                <field type="Flipbox: Back Title" editor_type="LINE">back_title</field>
+                <field type="Flipbox: Back Content" editor_type="VISUAL">back_text</field>
+            </fields>
+        </widget>
+        <widget name="dlm-timeline">
+            <conditions>
+                <condition key="widgetType">dlm-timeline</condition>
+            </conditions>
+            <fields>
+                <field type="Timeline: Date" editor_type="LINE">list_date</field>
+                <field type="Timeline: Company" editor_type="LINE">list_company</field>
+                <field type="Timeline: Job" editor_type="LINE">list_job</field>
+                <field type="Timeline: Content" editor_type="VISUAL">list_content</field>
+            </fields>
+        </widget>
     </elementor-widgets>
 </wpml-config>
