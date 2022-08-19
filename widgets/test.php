@@ -40,7 +40,7 @@ class Test extends Widget_Base {
      * @return string Widget title.
      */
     public function get_title() {
-        return __( 'Test Widget', 'delennerd-elements' );
+        return esc_html__( 'Test Widget', 'delennerd-elements' );
     }
 
     /**
@@ -87,14 +87,14 @@ class Test extends Widget_Base {
         $this->start_controls_section(
         'section_content',
             [
-                'label' => __( 'Content', 'delennerd-elements' ),
+                'label' => esc_html__( 'Content', 'delennerd-elements' ),
             ]
         );
 
         $this->add_control(
             'image',
             [
-                'label' => __( 'Angebotsbild', 'elementor-awesomesauce' ),
+                'label' => esc_html__( 'Angebotsbild', 'elementor-awesomesauce' ),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -112,10 +112,10 @@ class Test extends Widget_Base {
 				'include' => [],
 				'default' => 'medium',
                 'options' => [
-					'thumbnail'  => __( 'Thumbnail - 150 x 150', 'delennerd-elements' ),
-					'medium' => __( 'Medium - 300 x 300', 'delennerd-elements' ),
-					'medium_large' => __( 'Medium Large - 768 x 0', 'delennerd-elements' ),
-					'custom' => __( 'Individuell', 'delennerd-elements' ),
+					'thumbnail'  => esc_html__( 'Thumbnail - 150 x 150', 'delennerd-elements' ),
+					'medium' => esc_html__( 'Medium - 300 x 300', 'delennerd-elements' ),
+					'medium_large' => esc_html__( 'Medium Large - 768 x 0', 'delennerd-elements' ),
+					'custom' => esc_html__( 'Individuell', 'delennerd-elements' ),
 				],
 			]
 		);
@@ -123,36 +123,36 @@ class Test extends Widget_Base {
         $this->add_control(
             'title',
             [
-                'label' => __( 'Title', 'delennerd-elements' ),
+                'label' => esc_html__( 'Title', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => __( 'Title', 'delennerd-elements' ),
+                'default' => esc_html__( 'Title', 'delennerd-elements' ),
             ]
         );
 
         $this->add_control(
         'description',
             [
-                'label' => __( 'Description', 'delennerd-elements' ),
+                'label' => esc_html__( 'Description', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => __( 'Description', 'delennerd-elements' ),
+                'default' => esc_html__( 'Description', 'delennerd-elements' ),
             ]
         );
 
         $this->add_control(
         'content',
             [
-                'label' => __( 'Content', 'delennerd-elements' ),
+                'label' => esc_html__( 'Content', 'delennerd-elements' ),
                 'type' => Controls_Manager::WYSIWYG,
-                'default' => __( 'Content', 'delennerd-elements' ),
+                'default' => esc_html__( 'Content', 'delennerd-elements' ),
             ]
         );
 
         $this->add_control(
             'link_href',
             [
-                'label' => __( 'Button Link', 'delennerd-elements' ),
+                'label' => esc_html__( 'Button Link', 'delennerd-elements' ),
                 'type' => Controls_Manager::URL,
-                'placeholder' => __( 'https://your-link.com', 'delennerd-elements' ),
+                'placeholder' => esc_html__( 'https://your-link.com', 'delennerd-elements' ),
 				'show_external' => true,
                 'default' => [
                     'url' => 'https://your-link.com',
@@ -165,9 +165,9 @@ class Test extends Widget_Base {
         $this->add_control(
             'link_text',
             [
-                'label' => __( 'Button Text', 'delennerd-elements' ),
+                'label' => esc_html__( 'Button Text', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => __( 'Button Text', 'delennerd-elements' ),
+                'default' => esc_html__( 'Button Text', 'delennerd-elements' ),
             ]
         );
 
@@ -177,7 +177,7 @@ class Test extends Widget_Base {
 		$this->start_controls_section(
 			'style_section',
 			[
-				'label' => __( 'Style Section', 'elementor-awesomesauce' ),
+				'label' => esc_html__( 'Style Section', 'elementor-awesomesauce' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -185,7 +185,7 @@ class Test extends Widget_Base {
         $this->add_responsive_control(
 			'space_between',
 			[
-				'label' => __( 'Spacing', 'delennerd-elements' ),
+				'label' => esc_html__( 'Spacing', 'delennerd-elements' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -215,19 +215,19 @@ class Test extends Widget_Base {
 		$this->add_control(
 		  'text_align',
 		  [
-		    'label' => __( 'Alignment', 'elementor-awesomesauce' ),
+		    'label' => esc_html__( 'Alignment', 'elementor-awesomesauce' ),
 		    'type' => \Elementor\Controls_Manager::CHOOSE,
 		    'options' => [
 		      'left' => [
-		        'title' => __( 'Left', 'elementor-awesomesauce' ),
+		        'title' => esc_html__( 'Left', 'elementor-awesomesauce' ),
 		        'icon' => 'eicon-text-align-left',
 		      ],
 		      'center' => [
-		        'title' => __( 'Center', 'elementor-awesomesauce' ),
+		        'title' => esc_html__( 'Center', 'elementor-awesomesauce' ),
 		        'icon' => 'eicon-text-align-center',
 		      ],
 		      'right' => [
-		        'title' => __( 'Right', 'elementor-awesomesauce' ),
+		        'title' => esc_html__( 'Right', 'elementor-awesomesauce' ),
 		        'icon' => 'eicon-text-align-right',
 		      ],
 		    ],
@@ -240,7 +240,7 @@ class Test extends Widget_Base {
 		  Group_Control_Typography::get_type(),
 		  [
 		    'name'     => 'content_typography',
-		    'label'    => __( 'Typography', 'delennerd-elements' ),
+		    'label'    => esc_html__( 'Typography', 'delennerd-elements' ),
 		    'scheme'   => Typography::TYPOGRAPHY_1,
 		    'selector' => '{{WRAPPER}} .title',
 		    'fields_options' => [
@@ -274,13 +274,13 @@ class Test extends Widget_Base {
 		$this->add_inline_editing_attributes( 'content', 'advanced' );
 	?>
         <div class="image">
-            <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'image' ); ?>
+            <?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'image' ) ); ?>
         </div>
-		<div class="title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></div>
-		<div <?php echo $this->get_render_attribute_string( 'description' ); ?>><?php echo $settings['description']; ?></div>
-		<div class="content" <?php echo $this->get_render_attribute_string( 'content' ); ?>><?php echo $settings['content']; ?></div>
+		<div class="title" <?php echo wp_kses_post( $this->get_render_attribute_string( 'title' ) ); ?>><?php echo wp_kses_post( $settings['title'] ); ?></div>
+		<div <?php echo wp_kses_post( $this->get_render_attribute_string( 'description' ) ); ?>><?php echo wp_kses_post( $settings['description'] ); ?></div>
+		<div class="content" <?php echo wp_kses_post( $this->get_render_attribute_string( 'content' ) ); ?>><?php echo wp_kses_post( $settings['content'] ); ?></div>
 
-        <a href="<?php echo $settings['link_href']; ?>" target="<?php echo $settings['link_target']; ?>" class="button">Angebot sichern</a>
+        <a href="<?php echo esc_attr( $settings['link_href'] ); ?>" target="<?php echo esc_attr( $settings['link_target'] ); ?>" class="button"><?php wp_kses_post( $settings['link_text'] ); ?></a>
     <?php
   }
 

@@ -4,6 +4,7 @@ namespace DelennerdElements\Widgets;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 use Elementor\Widget_Base;
+use Elementor\Utils;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Core\Schemes\Typography;
@@ -64,7 +65,7 @@ class Timeline extends Widget_Base {
     }
 
     public function get_title() {
-        return __( 'DLM Timeline', 'delennerd-elements' );
+        return esc_html__( 'DLM Timeline', 'delennerd-elements' );
     }
 
     public function get_icon() {
@@ -84,7 +85,7 @@ class Timeline extends Widget_Base {
         $this->start_controls_section(
             'content_section',
             [
-                'label' => __( 'Content', 'delennerd-elements' ),
+                'label' => esc_html__( 'Content', 'delennerd-elements' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -94,9 +95,9 @@ class Timeline extends Widget_Base {
         $repeater->add_control(
             'list_date',
             [
-                'label' => __( 'Timeline Items', 'delennerd-elements' ),
+                'label' => esc_html__( 'Timeline Items', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => __( 'since 04/2019' , 'delennerd-elements' ),
+                'default' => esc_html__( 'since 04/2019' , 'delennerd-elements' ),
                 'label_block' => true,
             ]
         );
@@ -104,9 +105,9 @@ class Timeline extends Widget_Base {
         $repeater->add_control(
             'list_company',
             [
-                'label' => __( 'Company', 'delennerd-elements' ),
+                'label' => esc_html__( 'Company', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => __( 'Foo bar GmbH' , 'delennerd-elements' ),
+                'default' => esc_html__( 'Foo bar GmbH' , 'delennerd-elements' ),
                 'label_block' => true,
             ]
         );
@@ -114,9 +115,9 @@ class Timeline extends Widget_Base {
         $repeater->add_control(
             'list_job',
             [
-                'label' => __( 'Job', 'delennerd-elements' ),
+                'label' => esc_html__( 'Job', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => __( 'Web developer' , 'delennerd-elements' ),
+                'default' => esc_html__( 'Web developer' , 'delennerd-elements' ),
                 'label_block' => true,
             ]
         );
@@ -124,9 +125,9 @@ class Timeline extends Widget_Base {
         $repeater->add_control(
             'list_content',
             [
-                'label' => __( 'Content', 'delennerd-elements' ),
+                'label' => esc_html__( 'Content', 'delennerd-elements' ),
                 'type' => Controls_Manager::WYSIWYG,
-                'default' => __( 'Item content' , 'delennerd-elements' ),
+                'default' => esc_html__( 'Item content' , 'delennerd-elements' ),
                 'show_label' => false,
             ]
         );
@@ -134,17 +135,17 @@ class Timeline extends Widget_Base {
         $this->add_control(
             'timeline_list',
             [
-                'label' => __( 'Date', 'delennerd-elements' ),
+                'label' => esc_html__( 'Date', 'delennerd-elements' ),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'list_title' => __( 'Title #1', 'delennerd-elements' ),
-                        'list_content' => __( 'Item content', 'delennerd-elements' ),
+                        'list_title' => esc_html__( 'Title #1', 'delennerd-elements' ),
+                        'list_content' => esc_html__( 'Item content', 'delennerd-elements' ),
                     ],
                     [
-                        'list_title' => __( 'Title #2', 'delennerd-elements' ),
-                        'list_content' => __( 'Item content', 'delennerd-elements' ),
+                        'list_title' => esc_html__( 'Title #2', 'delennerd-elements' ),
+                        'list_content' => esc_html__( 'Item content', 'delennerd-elements' ),
                     ],
                 ],
                 'title_field' => '{{{ list_date }}}: {{{ list_company }}}',
@@ -161,7 +162,7 @@ class Timeline extends Widget_Base {
         $this->start_controls_section(
             'box_style_section',
             [
-                'label' => __( 'Box', 'delennerd-elements' ),
+                'label' => esc_html__( 'Box', 'delennerd-elements' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -169,7 +170,7 @@ class Timeline extends Widget_Base {
         $this->add_control(
             'margin',
             [
-                'label' => __( 'Margin', 'delennerd-elements' ),
+                'label' => esc_html__( 'Margin', 'delennerd-elements' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
@@ -182,7 +183,7 @@ class Timeline extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'border',
-                'label' => __( 'Border', 'delennerd-elements' ),
+                'label' => esc_html__( 'Border', 'delennerd-elements' ),
                 'selector' => '{{WRAPPER}} .timeline-box-inner',
             ]
         );
@@ -191,7 +192,7 @@ class Timeline extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'box_shadow',
-                'label' => __( 'Box Shadow', 'delennerd-elements' ),
+                'label' => esc_html__( 'Box Shadow', 'delennerd-elements' ),
                 'default' => '0 1px 6px rgba(0,0,0,0.12)',
                 'selector' => '{{WRAPPER}} .timeline-box-inner',
             ]
@@ -207,7 +208,7 @@ class Timeline extends Widget_Base {
         $this->start_controls_section(
             'date_style_section',
             [
-                'label' => __( 'Date', 'delennerd-elements' ),
+                'label' => esc_html__( 'Date', 'delennerd-elements' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -215,7 +216,7 @@ class Timeline extends Widget_Base {
         $this->add_control(
             'date_color',
             [
-                'label' => __( 'Date Color', 'delennerd-elements' ),
+                'label' => esc_html__( 'Date Color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
                 'scheme' => [
                     'type' => Color::get_type(),
@@ -232,7 +233,7 @@ class Timeline extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'date_typography',
-                'label'    => __( 'Typography', 'delennerd-elements' ),
+                'label'    => esc_html__( 'Typography', 'delennerd-elements' ),
                 'scheme'   => Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .list-date',
                 'fields_options' => [
@@ -249,19 +250,19 @@ class Timeline extends Widget_Base {
         $this->add_control(
             'date_text_align',
             [
-                'label' => __( 'Alignment', 'delennerd-elements' ),
+                'label' => esc_html__( 'Alignment', 'delennerd-elements' ),
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => __( 'Left', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Left', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => __( 'Center', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Center', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => __( 'Right', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Right', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
@@ -282,7 +283,7 @@ class Timeline extends Widget_Base {
         $this->start_controls_section(
             'company_style_section',
             [
-                'label' => __( 'Company', 'delennerd-elements' ),
+                'label' => esc_html__( 'Company', 'delennerd-elements' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -290,7 +291,7 @@ class Timeline extends Widget_Base {
         $this->add_control(
 			'company_html_tag',
 			[
-				'label' => __( 'HTML Tag', 'elementor' ),
+				'label' => esc_html__( 'HTML Tag', 'elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
 					'h1' => 'H1',
@@ -308,7 +309,7 @@ class Timeline extends Widget_Base {
         $this->add_control(
             'company_color',
             [
-                'label' => __( 'Text Color', 'delennerd-elements' ),
+                'label' => esc_html__( 'Text Color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
                 'scheme' => [
                     'type' => Color::get_type(),
@@ -324,7 +325,7 @@ class Timeline extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'company_typography',
-                'label'    => __( 'Typography', 'delennerd-elements' ),
+                'label'    => esc_html__( 'Typography', 'delennerd-elements' ),
                 'scheme'   => Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .list-company',
                 'fields_options' => [
@@ -341,19 +342,19 @@ class Timeline extends Widget_Base {
         $this->add_control(
             'company_text_align',
                 [
-                'label' => __( 'Alignment', 'delennerd-elements' ),
+                'label' => esc_html__( 'Alignment', 'delennerd-elements' ),
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => __( 'Left', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Left', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => __( 'Center', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Center', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => __( 'Right', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Right', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
@@ -375,7 +376,7 @@ class Timeline extends Widget_Base {
         $this->start_controls_section(
             'job_style_section',
             [
-                'label' => __( 'Job', 'delennerd-elements' ),
+                'label' => esc_html__( 'Job', 'delennerd-elements' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -383,7 +384,7 @@ class Timeline extends Widget_Base {
         $this->add_control(
             'job_color',
             [
-                'label' => __( 'Text Color', 'delennerd-elements' ),
+                'label' => esc_html__( 'Text Color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
                 'scheme' => [
                     'type' => Color::get_type(),
@@ -399,7 +400,7 @@ class Timeline extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'job_typography',
-                'label'    => __( 'Typography', 'delennerd-elements' ),
+                'label'    => esc_html__( 'Typography', 'delennerd-elements' ),
                 'scheme'   => Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .list-job',
                 'fields_options' => [
@@ -416,19 +417,19 @@ class Timeline extends Widget_Base {
         $this->add_control(
             'job_text_align',
             [
-                'label' => __( 'Alignment', 'delennerd-elements' ),
+                'label' => esc_html__( 'Alignment', 'delennerd-elements' ),
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => __( 'Left', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Left', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => __( 'Center', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Center', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => __( 'Right', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Right', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
@@ -450,7 +451,7 @@ class Timeline extends Widget_Base {
         $this->start_controls_section(
             'description_style_section',
             [
-                'label' => __( 'Description', 'delennerd-elements' ),
+                'label' => esc_html__( 'Description', 'delennerd-elements' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -458,7 +459,7 @@ class Timeline extends Widget_Base {
         $this->add_control(
             'content_color',
             [
-                'label' => __( 'Text Color', 'delennerd-elements' ),
+                'label' => esc_html__( 'Text Color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
                 'scheme' => [
                     'type' => Color::get_type(),
@@ -474,7 +475,7 @@ class Timeline extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'content_typography',
-                'label'    => __( 'Typography', 'delennerd-elements' ),
+                'label'    => esc_html__( 'Typography', 'delennerd-elements' ),
                 'scheme'   => Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .list-content',
                 'fields_options' => [
@@ -491,19 +492,19 @@ class Timeline extends Widget_Base {
         $this->add_control(
             'content_text_align',
             [
-                'label' => __( 'Alignment', 'delennerd-elements' ),
+                'label' => esc_html__( 'Alignment', 'delennerd-elements' ),
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
-                        'title' => __( 'Left', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Left', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => __( 'Center', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Center', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => __( 'Right', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Right', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-right',
                     ],
                 ],
@@ -538,24 +539,24 @@ class Timeline extends Widget_Base {
 
                         <?php $pos = ( ($i % 2) == 0 ) ? 'left' : 'right'; ?>
 
-                        <div class="timeline-box timeline-box-<?php echo $pos ?> elementor-repeater-item-<?=$item['_id'] ?>">
+                        <div class="timeline-box timeline-box-<?php echo esc_attr( $pos ); ?> elementor-repeater-item-<?=$item['_id'] ?>">
                             <span class="dot"></span>
-                            <div class="timeline-box-inner wow fadeIn<?php echo ucfirst($pos) ?>" data-wow-offset="50">
+                            <div class="timeline-box-inner wow fadeIn<?php echo ucfirst( esc_attr($pos ) ) ?>" data-wow-offset="50">
                                 <span class="arrow"></span>
-                                <div class="list-date"><?php echo $item['list_date'] ?></div>
+                                <div class="list-date"><?php echo wp_kses_post( $item['list_date'] ); ?></div>
                                 
                                 <?php if ( !empty($item['list_company']) ) { 
                                     echo sprintf( 
                                         '<%1$s %2$s>%3$s</%1$s>', 
-                                        $settings['company_html_tag'], 
-                                        $this->get_render_attribute_string( 'company' ), 
-                                        $item['list_company'] 
+                                        Utils::validate_html_tag( $settings['company_html_tag'] ),
+                                        wp_kses_post( $this->get_render_attribute_string( 'company' ) ), 
+                                        wp_kses_post( $item['list_company'] )
                                     );
                                 } ?>
                                 <?php if ( !empty($item['list_job']) ) : ?>
-                                    <div class="list-job"><?php echo $item['list_job'] ?></div>
+                                    <div class="list-job"><?php echo wp_kses_post( $item['list_job'] ); ?></div>
                                 <?php endif; ?>
-                                <div class="list-content"><?php echo nl2br($item['list_content']) ?></div>
+                                <div class="list-content"><?php echo $this->parse_text_editor( $item['list_content'] ); ?></div>
                             </div>
                         </div>
 
@@ -607,6 +608,8 @@ class Timeline extends Widget_Base {
                                 'data-wow-offset': '50'
                             }
                         );
+
+                        var companyHtmlTag = elementor.helpers.validateHTMLTag( settings.company_html_tag );
                     #>
 
                     <div class="timeline-box timeline-box-{{{ pos }}} elementor-repeater-item-">
@@ -617,7 +620,7 @@ class Timeline extends Widget_Base {
                             <span class="arrow"></span>
                             <div class="list-date">{{{ item.list_date }}}</div>
 
-                            <# print( '<' + settings.company_html_tag  + ' ' + view.getRenderAttributeString( 'company' ) + '>' + item.list_company + '</' + settings.company_html_tag + '>' ); #>
+                            <# print( '<' + companyHtmlTag  + ' ' + view.getRenderAttributeString( 'company' ) + '>' + item.list_company + '</' + companyHtmlTag + '>' ); #>
 
                             <div class="list-job">{{{ item.list_job }}}</div>
 

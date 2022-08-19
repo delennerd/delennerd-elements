@@ -9,7 +9,6 @@ use Elementor\Utils;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Image_Size;
 
-
 class BootstrapButton extends Widget_Base {
 
     public function __construct( $data = [], $args = null ) {
@@ -30,7 +29,7 @@ class BootstrapButton extends Widget_Base {
     }
 
     public function get_title() {
-        return __( 'Bootstrap Button', 'delennerd-elements' );
+        return esc_html__( 'Bootstrap Button', 'delennerd-elements' );
     }
 
     public function get_icon() {
@@ -50,14 +49,14 @@ class BootstrapButton extends Widget_Base {
         $this->start_controls_section(
             'button_style',
             [
-                'label' => __( 'Button style', 'delennerd-elements' ),
+                'label' => esc_html__( 'Button style', 'delennerd-elements' ),
             ]
         );
 
         $this->add_responsive_control(
 			'space_between',
 			[
-				'label' => __( 'Space Between', 'delennerd-elements' ),
+				'label' => esc_html__( 'Space Between', 'delennerd-elements' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -76,19 +75,19 @@ class BootstrapButton extends Widget_Base {
 		$this->add_responsive_control(
 			'button_align',
 			[
-				'label' => __( 'Alignment', 'delennerd-elements' ),
+				'label' => esc_html__( 'Alignment', 'delennerd-elements' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'delennerd-elements' ),
+						'title' => esc_html__( 'Left', 'delennerd-elements' ),
 						'icon' => 'eicon-h-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'delennerd-elements' ),
+						'title' => esc_html__( 'Center', 'delennerd-elements' ),
 						'icon' => 'eicon-h-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'delennerd-elements' ),
+						'title' => esc_html__( 'Right', 'delennerd-elements' ),
 						'icon' => 'eicon-h-align-right',
 					],
 				],
@@ -105,7 +104,7 @@ class BootstrapButton extends Widget_Base {
         $this->start_controls_section(
             'button_content',
             [
-                'label' => __( 'Buttons', 'delennerd-elements' ),
+                'label' => esc_html__( 'Buttons', 'delennerd-elements' ),
             ]
         );
 
@@ -114,11 +113,11 @@ class BootstrapButton extends Widget_Base {
 		$repeater->add_control(
 			'text',
 			[
-				'label' => __( 'Text', 'delennerd-elements' ),
+				'label' => esc_html__( 'Text', 'delennerd-elements' ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'placeholder' => __( 'List Item', 'delennerd-elements' ),
-				'default' => __( 'List Item', 'delennerd-elements' ),
+				'placeholder' => esc_html__( 'List Item', 'delennerd-elements' ),
+				'default' => esc_html__( 'List Item', 'delennerd-elements' ),
 				'dynamic' => [
 					'active' => true,
 				],
@@ -128,12 +127,12 @@ class BootstrapButton extends Widget_Base {
 		$repeater->add_control(
 			'link',
 			[
-				'label' => __( 'Link', 'elementor' ),
+				'label' => esc_html__( 'Link', 'elementor' ),
 				'type' => Controls_Manager::URL,
 				'dynamic' => [
 					'active' => true,
 				],
-				'placeholder' => __( 'https://your-link.com', 'delennerd-elements' ),
+				'placeholder' => esc_html__( 'https://your-link.com', 'delennerd-elements' ),
                 'default' => [
                     'url' => '#',
                 ],
@@ -143,7 +142,7 @@ class BootstrapButton extends Widget_Base {
         $repeater->add_control(
             'link_custom_target',
             [
-                'label' => __( 'Custom link target', 'delennerd-elements' ),
+                'label' => esc_html__( 'Custom link target', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
             ]
@@ -152,7 +151,7 @@ class BootstrapButton extends Widget_Base {
         $repeater->add_control(
             'custom_css_id',
             [
-                'label' => __( 'CSS ID', 'delennerd-elements' ),
+                'label' => esc_html__( 'CSS ID', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXT
             ]
         );
@@ -160,7 +159,7 @@ class BootstrapButton extends Widget_Base {
         $repeater->add_control(
             'custom_css_class',
             [
-                'label' => __( 'CSS Classes', 'delennerd-elements' ),
+                'label' => esc_html__( 'CSS Classes', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
             ]
@@ -169,27 +168,27 @@ class BootstrapButton extends Widget_Base {
         $repeater->add_control(
             'css_class',
             [
-                'label' => __( 'Button Style', 'delennerd-elements' ),
+                'label' => esc_html__( 'Button Style', 'delennerd-elements' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'primary',
                 'options' => [
-                    'link' => __( 'Link', 'delennerd-elements' ),
-                    'primary' => __( 'Primary', 'delennerd-elements' ),
-                    'secondary' => __( 'Secondary', 'delennerd-elements' ),
+                    'link' => esc_html__( 'Link', 'delennerd-elements' ),
+                    'primary' => esc_html__( 'Primary', 'delennerd-elements' ),
+                    'secondary' => esc_html__( 'Secondary', 'delennerd-elements' ),
 
-                    'outline-primary' => __( 'Outline Primary', 'delennerd-elements' ),
-                    'outline-secondary' => __( 'Outline Secondary', 'delennerd-elements' ),
+                    'outline-primary' => esc_html__( 'Outline Primary', 'delennerd-elements' ),
+                    'outline-secondary' => esc_html__( 'Outline Secondary', 'delennerd-elements' ),
 
-                    'outline-custom' => __( 'Outline Custom', 'delennerd-elements' ),
-                    'outline-custom btn-outline-custom--primary' => __( 'Outline Custom - Primary', 'delennerd-elements' ),
-                    'outline-custom btn-outline-custom--secondary' => __( 'Outline Custom - Secondary', 'delennerd-elements' ),
+                    'outline-custom' => esc_html__( 'Outline Custom', 'delennerd-elements' ),
+                    'outline-custom btn-outline-custom--primary' => esc_html__( 'Outline Custom - Primary', 'delennerd-elements' ),
+                    'outline-custom btn-outline-custom--secondary' => esc_html__( 'Outline Custom - Secondary', 'delennerd-elements' ),
                     
-                    'success' => __( 'Success', 'delennerd-elements' ),
-                    'danger' => __( 'Danger', 'delennerd-elements' ),
-                    'warning' => __( 'Warning', 'delennerd-elements' ),
-                    'outline-success' => __( 'Outline Success', 'delennerd-elements' ),
-                    'outline-danger' => __( 'Outline Danger', 'delennerd-elements' ),
-                    'outline-warning' => __( 'Outline Warning', 'delennerd-elements' ),
+                    'success' => esc_html__( 'Success', 'delennerd-elements' ),
+                    'danger' => esc_html__( 'Danger', 'delennerd-elements' ),
+                    'warning' => esc_html__( 'Warning', 'delennerd-elements' ),
+                    'outline-success' => esc_html__( 'Outline Success', 'delennerd-elements' ),
+                    'outline-danger' => esc_html__( 'Outline Danger', 'delennerd-elements' ),
+                    'outline-warning' => esc_html__( 'Outline Warning', 'delennerd-elements' ),
                 ],
             ]
         );
@@ -202,12 +201,12 @@ class BootstrapButton extends Widget_Base {
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'text' => __( 'Button #1', 'delennerd-elements' ),
+						'text' => esc_html__( 'Button #1', 'delennerd-elements' ),
                         'css_class' => 'primary',
                         'link' => '#',
 					],
 					[
-						'text' => __( 'Button #2', 'delennerd-elements' ),
+						'text' => esc_html__( 'Button #2', 'delennerd-elements' ),
                         'css_class' => 'secondary',
                         'link' => '#',
 					],
@@ -244,7 +243,7 @@ class BootstrapButton extends Widget_Base {
 
         ?>
 
-        <ul <?php echo $this->get_render_attribute_string( 'buttons_wrapper' ); ?>>
+        <ul <?php echo wp_kses_post( $this->get_render_attribute_string( 'buttons_wrapper' ) ); ?>>
 
             <?php
 
@@ -265,7 +264,7 @@ class BootstrapButton extends Widget_Base {
 
             ?>
 
-            <li <?php echo $this->get_render_attribute_string( 'button_item' ); ?>>
+            <li <?php echo wp_kses_post( $this->get_render_attribute_string( 'button_item' ) ); ?>>
 
                 <?php
                 if ( ! empty( $item['link']['url'] ) ) {
@@ -282,10 +281,10 @@ class BootstrapButton extends Widget_Base {
 
                     $this->add_link_attributes( $link_key, $item['link'] );
 
-                    echo '<a ' . $this->get_render_attribute_string( $link_key ) . ' ' . $this->get_render_attribute_string( $repeater_setting_key ) . '>';
+                    echo '<a ' . wp_kses_post( $this->get_render_attribute_string( $link_key ) ) . ' ' . wp_kses_post( $this->get_render_attribute_string( $repeater_setting_key ) ) . '>';
                 }
 
-                echo $item['text'];
+                echo wp_kses_post( $item['text'] );
                 
                 if (! empty($item['link']['url'])) {
                     echo '</a>';

@@ -20,7 +20,7 @@ class SectionHeadline extends Widget_Base
 
     public function get_title()
     {
-        return __('Section Headline', 'delennerd-elements');
+        return esc_html__('Section Headline', 'delennerd-elements');
     }
 
     public function get_icon()
@@ -55,18 +55,18 @@ class SectionHeadline extends Widget_Base
         $this->start_controls_section(
             'dlme_headline_content_settings',
             [
-                'label' => __( 'Content', 'delennerd-elements' ),
+                'label' => esc_html__( 'Content', 'delennerd-elements' ),
             ]
         );
 
         $this->add_control(
             'title',
             [
-                'label' => __( 'Title', 'delennerd-elements' ),
+                'label' => esc_html__( 'Title', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'placeholder' => __( 'Enter your title', 'delennerd-elements' ),
-                'default' => __( 'Add Your Heading Text Here', 'delennerd-elements' ),
+                'placeholder' => esc_html__( 'Enter your title', 'delennerd-elements' ),
+                'default' => esc_html__( 'Add Your Heading Text Here', 'delennerd-elements' ),
                 'dynamic' => array(
                     'active' => true
                 ),
@@ -76,11 +76,11 @@ class SectionHeadline extends Widget_Base
         $this->add_control(
             'subtitle',
             [
-                'label' => __( 'Subtitle', 'delennerd-elements' ),
+                'label' => esc_html__( 'Subtitle', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'placeholder' => __( 'Enter your title', 'delennerd-elements' ),
-                'default' => __( 'My Subtitle', 'delennerd-elements' ),
+                'placeholder' => esc_html__( 'Enter your title', 'delennerd-elements' ),
+                'default' => esc_html__( 'My Subtitle', 'delennerd-elements' ),
                 'dynamic' => array(
                     'active' => true
                 ),
@@ -98,7 +98,7 @@ class SectionHeadline extends Widget_Base
         $this->start_controls_section(
 			'headline_style_section',
 			[
-				'label' => __( 'Alignment', 'delennerd-elements' ),
+				'label' => esc_html__( 'Alignment', 'delennerd-elements' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -106,35 +106,32 @@ class SectionHeadline extends Widget_Base
         $this->add_responsive_control(
             'headline_horizontal_align',
             [
-                'label' => __( 'Alignment', 'delennerd-elements' ),
+                'label' => esc_html__( 'Alignment', 'delennerd-elements' ),
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'label_block' => false,
-                'default' => 'text-left',
+                'default' => 'text-left text-start',
                 'options' => [
-                    'text-left' => [
-                        'title' => __( 'Left', 'delennerd-elements' ),
+                    'text-left text-start' => [
+                        'title' => esc_html__( 'Left', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-left',
                     ],
                     'text-center' => [
-                        'title' => __( 'Center', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Center', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-center',
                     ],
-                    'text-right' => [
-                        'title' => __( 'Right', 'delennerd-elements' ),
+                    'text-right text-end' => [
+                        'title' => esc_html__( 'Right', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-right',
                     ]
                 ],
                 'toggle' => true,
-                'selectors' => [
-                    '{{WRAPPER}} .widget-title' => 'text-align: {{VALUE}}',
-                ],
             ]
         );
 
         $this->add_control(
             'dlmel_sh_custom_css',
             [
-                'label' => __( 'Headline class', 'delennerd-elements' ),
+                'label' => esc_html__( 'Headline class', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
                 'default' => '',
@@ -152,7 +149,7 @@ class SectionHeadline extends Widget_Base
         $this->start_controls_section(
 			'title_style_section',
 			[
-				'label' => __( 'Title', 'delennerd-elements' ),
+				'label' => esc_html__( 'Title', 'delennerd-elements' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -160,7 +157,7 @@ class SectionHeadline extends Widget_Base
         $this->add_control(
 			'title_html_tag',
 			[
-				'label' => __( 'HTML Tag', 'elementor' ),
+				'label' => esc_html__( 'HTML Tag', 'elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
 					'h1' => 'H1',
@@ -178,14 +175,15 @@ class SectionHeadline extends Widget_Base
         $this->add_control(
             'title_font_size',
             [
-                'label' => __( 'Font size', 'delennerd-elements' ),
+                'label' => esc_html__( 'Font size', 'delennerd-elements' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'normal',
                 'options' => [
-                    'inherit'  => __( 'Headline Tag', 'delennerd-elements' ),
-                    'normal'  => __( 'Normal', 'delennerd-elements' ),
-                    'big'  => __( 'Big', 'delennerd-elements' ),
-                    'bigger'  => __( 'Bigger', 'delennerd-elements' ),
+                    'inherit'  => esc_html__( 'Headline Tag', 'delennerd-elements' ),
+                    'normal'  => esc_html__( 'Normal', 'delennerd-elements' ),
+                    'medium'  => esc_html__( 'Medium', 'delennerd-elements' ),
+                    'big'  => esc_html__( 'Big', 'delennerd-elements' ),
+                    'bigger'  => esc_html__( 'Bigger', 'delennerd-elements' ),
                 ],
             ]
         );
@@ -193,19 +191,19 @@ class SectionHeadline extends Widget_Base
         $this->add_control(
             'title_color',
             [
-                'label' => __( 'Color', 'delennerd-elements' ),
+                'label' => esc_html__( 'Color', 'delennerd-elements' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'inherit',
                 'options' => [
-                    'inherit'  => __( 'Default', 'delennerd-elements' ),
-                    'primary'  => __( 'Primary', 'delennerd-elements' ),
-                    'secondary'  => __( 'Secondary', 'delennerd-elements' ),
-                    'thirdy'  => __( 'Thirdy', 'delennerd-elements' ),
-                    'black'  => __( 'Black', 'delennerd-elements' ),
-                    'white'  => __( 'White', 'delennerd-elements' ),
-                    'light-grey'  => __( 'Light Grey', 'delennerd-elements' ),
-                    'custom1'  => __( 'Custom 1', 'delennerd-elements' ),
-                    'custom2'  => __( 'Custom 2', 'delennerd-elements' ),
+                    'inherit'  => esc_html__( 'Default', 'delennerd-elements' ),
+                    'primary'  => esc_html__( 'Primary', 'delennerd-elements' ),
+                    'secondary'  => esc_html__( 'Secondary', 'delennerd-elements' ),
+                    'thirdy'  => esc_html__( 'Thirdy', 'delennerd-elements' ),
+                    'black'  => esc_html__( 'Black', 'delennerd-elements' ),
+                    'white'  => esc_html__( 'White', 'delennerd-elements' ),
+                    'light-grey'  => esc_html__( 'Light Grey', 'delennerd-elements' ),
+                    'custom1'  => esc_html__( 'Custom 1', 'delennerd-elements' ),
+                    'custom2'  => esc_html__( 'Custom 2', 'delennerd-elements' ),
                 ],
             ]
         );
@@ -213,7 +211,7 @@ class SectionHeadline extends Widget_Base
         $this->add_control(
             'title_custom_css',
             [
-                'label' => __( 'Title class', 'delennerd-elements' ),
+                'label' => esc_html__( 'Title class', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
                 'default' => '',
@@ -231,7 +229,7 @@ class SectionHeadline extends Widget_Base
         $this->start_controls_section(
 			'subtitle_style_section',
 			[
-				'label' => __( 'Subtitle', 'delennerd-elements' ),
+				'label' => esc_html__( 'Subtitle', 'delennerd-elements' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -239,7 +237,7 @@ class SectionHeadline extends Widget_Base
         $this->add_control(
 			'subtitle_html_tag',
 			[
-				'label' => __( 'HTML Tag', 'elementor' ),
+				'label' => esc_html__( 'HTML Tag', 'elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
 					'h1' => 'H1',
@@ -257,14 +255,15 @@ class SectionHeadline extends Widget_Base
         $this->add_control(
             'subtitle_font_size',
             [
-                'label' => __( 'Font size', 'delennerd-elements' ),
+                'label' => esc_html__( 'Font size', 'delennerd-elements' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'normal',
                 'options' => [
-                    'inherit'  => __( 'Subtitle Tag', 'delennerd-elements' ),
-                    'normal'  => __( 'Normal', 'delennerd-elements' ),
-                    'big'  => __( 'Big', 'delennerd-elements' ),
-                    'bigger'  => __( 'Bigger', 'delennerd-elements' ),
+                    'inherit'  => esc_html__( 'Subtitle Tag', 'delennerd-elements' ),
+                    'normal'  => esc_html__( 'Normal', 'delennerd-elements' ),
+                    'medium'  => esc_html__( 'Medium', 'delennerd-elements' ),
+                    'big'  => esc_html__( 'Big', 'delennerd-elements' ),
+                    'bigger'  => esc_html__( 'Bigger', 'delennerd-elements' ),
                 ],
             ]
         );
@@ -272,19 +271,19 @@ class SectionHeadline extends Widget_Base
         $this->add_control(
             'subtitle_color',
             [
-                'label' => __( 'Color', 'delennerd-elements' ),
+                'label' => esc_html__( 'Color', 'delennerd-elements' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'inherit',
                 'options' => [
-                    'inherit'  => __( 'Default', 'delennerd-elements' ),
-                    'primary'  => __( 'Primary', 'delennerd-elements' ),
-                    'secondary'  => __( 'Secondary', 'delennerd-elements' ),
-                    'thirdy'  => __( 'Thirdy', 'delennerd-elements' ),
-                    'black'  => __( 'Black', 'delennerd-elements' ),
-                    'white'  => __( 'White', 'delennerd-elements' ),
-                    'light-grey'  => __( 'Light Grey', 'delennerd-elements' ),
-                    'custom1'  => __( 'Custom 1', 'delennerd-elements' ),
-                    'custom2'  => __( 'Custom 2', 'delennerd-elements' ),
+                    'inherit'  => esc_html__( 'Default', 'delennerd-elements' ),
+                    'primary'  => esc_html__( 'Primary', 'delennerd-elements' ),
+                    'secondary'  => esc_html__( 'Secondary', 'delennerd-elements' ),
+                    'thirdy'  => esc_html__( 'Thirdy', 'delennerd-elements' ),
+                    'black'  => esc_html__( 'Black', 'delennerd-elements' ),
+                    'white'  => esc_html__( 'White', 'delennerd-elements' ),
+                    'light-grey'  => esc_html__( 'Light Grey', 'delennerd-elements' ),
+                    'custom1'  => esc_html__( 'Custom 1', 'delennerd-elements' ),
+                    'custom2'  => esc_html__( 'Custom 2', 'delennerd-elements' ),
                 ],
             ]
         );
@@ -292,12 +291,12 @@ class SectionHeadline extends Widget_Base
          $this->add_control(
             'subtitle_position',
             [
-                'label' => __( 'Position', 'delennerd-elements' ),
+                'label' => esc_html__( 'Position', 'delennerd-elements' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'top',
                 'options' => [
-                    'top'  => __( 'Top', 'delennerd-elements' ),
-                    'bottom'  => __( 'Bottom', 'delennerd-elements' ),
+                    'top'  => esc_html__( 'Top', 'delennerd-elements' ),
+                    'bottom'  => esc_html__( 'Bottom', 'delennerd-elements' ),
                 ],
             ]
         );
@@ -305,7 +304,7 @@ class SectionHeadline extends Widget_Base
         $this->add_control(
             'subtitle_show_border',
             [
-                'label' => __( 'Border', 'delennerd-elements' ),
+                'label' => esc_html__( 'Border', 'delennerd-elements' ),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'yes',
             ]
@@ -314,18 +313,18 @@ class SectionHeadline extends Widget_Base
         $this->add_control(
             'subtitle_border_color',
             [
-                'label' => __( 'Border color', 'delennerd-elements' ),
+                'label' => esc_html__( 'Border color', 'delennerd-elements' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'black',
                 'options' => [
-                    'primary'  => __( 'Primary', 'delennerd-elements' ),
-                    'secondary'  => __( 'Secondary', 'delennerd-elements' ),
-                    'thirdy'  => __( 'Thirdy', 'delennerd-elements' ),
-                    'black'  => __( 'Black', 'delennerd-elements' ),
-                    'white'  => __( 'White', 'delennerd-elements' ),
-                    'light-grey'  => __( 'Light Grey', 'delennerd-elements' ),
-                    'custom1'  => __( 'Custom 1', 'delennerd-elements' ),
-                    'custom2'  => __( 'Custom 2', 'delennerd-elements' ),
+                    'primary'  => esc_html__( 'Primary', 'delennerd-elements' ),
+                    'secondary'  => esc_html__( 'Secondary', 'delennerd-elements' ),
+                    'thirdy'  => esc_html__( 'Thirdy', 'delennerd-elements' ),
+                    'black'  => esc_html__( 'Black', 'delennerd-elements' ),
+                    'white'  => esc_html__( 'White', 'delennerd-elements' ),
+                    'light-grey'  => esc_html__( 'Light Grey', 'delennerd-elements' ),
+                    'custom1'  => esc_html__( 'Custom 1', 'delennerd-elements' ),
+                    'custom2'  => esc_html__( 'Custom 2', 'delennerd-elements' ),
                 ],
                 'condition' => [
                     'subtitle_show_border' => 'yes'
@@ -336,13 +335,13 @@ class SectionHeadline extends Widget_Base
         $this->add_control(
             'subtitle_border_width',
             [
-                'label' => __( 'Border width', 'delennerd-elements' ),
+                'label' => esc_html__( 'Border width', 'delennerd-elements' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'fullwidth',
                 'options' => [
-                    'fullwidth'  => __( 'Full width', 'delennerd-elements' ),
-                    'maxwidth1'  => __( 'With Max-Width 1', 'delennerd-elements' ),
-                    'maxwidth2'  => __( 'With Max-Width 2', 'delennerd-elements' ),
+                    'fullwidth'  => esc_html__( 'Full width', 'delennerd-elements' ),
+                    'maxwidth1'  => esc_html__( 'With Max-Width 1', 'delennerd-elements' ),
+                    'maxwidth2'  => esc_html__( 'With Max-Width 2', 'delennerd-elements' ),
                 ],
                 'condition' => [
                     'subtitle_show_border' => 'yes'
@@ -353,7 +352,7 @@ class SectionHeadline extends Widget_Base
         $this->add_control(
             'subtitle_custom_css',
             [
-                'label' => __( 'Subtitle class', 'delennerd-elements' ),
+                'label' => esc_html__( 'Subtitle class', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'label_block' => true,
                 'default' => '',
@@ -415,12 +414,11 @@ class SectionHeadline extends Widget_Base
             'subtitle', [
                 'class' => [
                     'section-headline__subtitle',
-                    $settings['headline_horizontal_align'],
+                    'subtitle--' . $settings['subtitle_position'],
+                    // $settings['headline_horizontal_align'],
                 ]
             ]
         );
-
-        // $this->add_render_attribute( 'subtitle', 'class', 'section-headline__subtitle' );
 
         if ( ! empty( $settings['subtitle_font_size'] ) ) 
             $this->add_render_attribute( 'subtitle', 'class', 'section-headline__subtitle--font-' . $settings['subtitle_font_size'] );
@@ -442,7 +440,7 @@ class SectionHeadline extends Widget_Base
             $this->add_render_attribute( 'subtitle', 'class', $settings['subtitle_custom_css'] );
     ?>
         
-        <div <?php echo $this->get_render_attribute_string( 'headline' ); ?>>
+        <div <?php echo wp_kses_post( $this->get_render_attribute_string( 'headline' ) ); ?>>
 
             <?php 
                 if ( $settings['subtitle_position'] === 'top' && !empty($settings['subtitle']) ) : 
@@ -450,18 +448,18 @@ class SectionHeadline extends Widget_Base
 
                 <?php echo sprintf( 
                         '<%1$s %2$s>%3$s</%1$s>', 
-                        $settings['subtitle_html_tag'], 
-                        $this->get_render_attribute_string( 'subtitle' ), 
-                        $settings['subtitle'] 
+                        Utils::validate_html_tag( $settings['subtitle_html_tag'] ),
+                        wp_kses_post( $this->get_render_attribute_string( 'subtitle' ) ),
+                        wp_kses_post( $settings['subtitle'] )
                 ); ?>
 
             <?php endif;
 
             echo sprintf( 
                     '<%1$s %2$s>%3$s</%1$s>', 
-                    $settings['title_html_tag'], 
-                    $this->get_render_attribute_string( 'title' ), 
-                    $settings['title'] 
+                    Utils::validate_html_tag( $settings['title_html_tag'] ), 
+                    wp_kses_post( $this->get_render_attribute_string( 'title' ) ), 
+                    wp_kses_post( $settings['title'] )
             ); ?>
 
             <?php 
@@ -470,9 +468,9 @@ class SectionHeadline extends Widget_Base
 
                 <?php echo sprintf( 
                         '<%1$s %2$s>%3$s</%1$s>', 
-                        $settings['subtitle_html_tag'], 
-                        $this->get_render_attribute_string( 'subtitle' ), 
-                        $settings['subtitle'] 
+                        Utils::validate_html_tag( $settings['subtitle_html_tag'] ), 
+                        wp_kses_post( $this->get_render_attribute_string( 'subtitle' ) ), 
+                        wp_kses_post( $settings['subtitle'] ) 
                 ); ?>
 
             <?php endif; ?>
@@ -500,11 +498,12 @@ class SectionHeadline extends Widget_Base
                 'headline',
                 {   
                     'class': [ 
-                        'section-headline',
-                        settings.headline_horizontal_align
+                        'section-headline'
                     ]
                 }
             );
+
+            view.addRenderAttribute( 'headline', 'class', settings.headline_horizontal_align );
 
             if ( settings.dlmel_sh_custom_css != '' ) 
                 view.addRenderAttribute( 'headline', 'class', settings.dlmel_sh_custom_css );
@@ -531,7 +530,6 @@ class SectionHeadline extends Widget_Base
             view.addRenderAttribute( 'subtitle', 'class', [
                 'section-headline__subtitle',
                 'subtitle--' + settings.subtitle_position,
-                settings.headline_horizontal_align
             ] );
 
             if ( settings.subtitle_font_size != '' ) 
@@ -549,6 +547,9 @@ class SectionHeadline extends Widget_Base
 
             if ( settings.subtitle_custom_css != '' ) 
                 view.addRenderAttribute( 'subtitle', 'class', settings.subtitle_custom_css );
+
+            var titleHtmlTag = elementor.helpers.validateHTMLTag( settings.title_html_tag );
+            var subTitleHtmlTag = elementor.helpers.validateHTMLTag( settings.subtitle_html_tag );
         #>
 
         <div {{{ view.getRenderAttributeString( 'headline' ) }}}>
@@ -559,16 +560,16 @@ class SectionHeadline extends Widget_Base
 
                 view.addInlineEditingAttributes( 'subtitle' );
 
-                print( '<' + settings.subtitle_html_tag  + ' ' + view.getRenderAttributeString( 'subtitle' ) + '>' + subtitle + '</' + settings.subtitle_html_tag + '>' );
+                print( '<' + subTitleHtmlTag  + ' ' + view.getRenderAttributeString( 'subtitle' ) + '>' + subtitle + '</' + subTitleHtmlTag + '>' );
             }
 
-            print( '<' + settings.title_html_tag  + ' ' + view.getRenderAttributeString( 'title' ) + '>' + title + '</' + settings.title_html_tag + '>' );
+            print( '<' + titleHtmlTag  + ' ' + view.getRenderAttributeString( 'title' ) + '>' + title + '</' + titleHtmlTag + '>' );
 
             if ( settings.subtitle_position == 'bottom' && settings.subtitle != '' ) {
 
                 view.addInlineEditingAttributes( 'subtitle' );
 
-                print( '<' + settings.subtitle_html_tag  + ' ' + view.getRenderAttributeString( 'subtitle' ) + '>' + subtitle + '</' + settings.subtitle_html_tag + '>' );
+                print( '<' + subTitleHtmlTag  + ' ' + view.getRenderAttributeString( 'subtitle' ) + '>' + subtitle + '</' + subTitleHtmlTag + '>' );
             }
             
             #>

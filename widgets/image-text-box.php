@@ -19,7 +19,7 @@ class ImageTextBox extends Widget_Base {
     }
 
     public function get_title() {
-        return __( 'Image Text Box', 'delennerd-elements' );
+        return esc_html__( 'Image Text Box', 'delennerd-elements' );
     }
 
     public function get_icon() {
@@ -39,14 +39,14 @@ class ImageTextBox extends Widget_Base {
         $this->start_controls_section(
             'section_content',
             [
-                'label' => __( 'Content', 'delennerd-elements' ),
+                'label' => esc_html__( 'Content', 'delennerd-elements' ),
             ]
         );
 
         $this->add_control(
             'image',
             [
-                'label' => __( 'Image', 'delennerd-elements' ),
+                'label' => esc_html__( 'Image', 'delennerd-elements' ),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -57,7 +57,7 @@ class ImageTextBox extends Widget_Base {
         $this->add_group_control(
             Group_Control_Image_Size::get_type(),
             [
-                'label' => __( 'Image size', 'delennerd-elements' ),
+                'label' => esc_html__( 'Image size', 'delennerd-elements' ),
                 'name' => 'image_dimension', // // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `thumbnail_size` and `thumbnail_custom_dimension`.
                 'exclude' => [],
                 'include' => [],
@@ -68,18 +68,18 @@ class ImageTextBox extends Widget_Base {
         $this->add_control(
             'title',
             [
-                'label' => __( 'Title', 'delennerd-elements' ),
+                'label' => esc_html__( 'Title', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXTAREA,
-                'default' => __( 'Title', 'delennerd-elements' ),
+                'default' => esc_html__( 'Title', 'delennerd-elements' ),
             ]
         );
 
         $this->add_control(
             'content',
             [
-                'label' => __( 'Content', 'delennerd-elements' ),
+                'label' => esc_html__( 'Content', 'delennerd-elements' ),
                 'type' => Controls_Manager::WYSIWYG,
-                'default' => __( 'Box content', 'delennerd-elements' ),
+                'default' => esc_html__( 'Box content', 'delennerd-elements' ),
             ]
         );
 
@@ -92,16 +92,16 @@ class ImageTextBox extends Widget_Base {
         $this->start_controls_section(
         'button_content',
             [
-                'label' => __( 'Button', 'delennerd-elements' ),
+                'label' => esc_html__( 'Button', 'delennerd-elements' ),
             ]
         );
 
         $this->add_control(
             'link_href',
             [
-                'label' => __( 'Button Link', 'delennerd-elements' ),
+                'label' => esc_html__( 'Button Link', 'delennerd-elements' ),
                 'type' => Controls_Manager::URL,
-                'placeholder' => __( 'https://your-link.com', 'delennerd-elements' ),
+                'placeholder' => esc_html__( 'https://your-link.com', 'delennerd-elements' ),
                 'show_external' => false,
                 'default' => [
                     'url' => 'https://your-link.com',
@@ -114,13 +114,13 @@ class ImageTextBox extends Widget_Base {
         $this->add_control(
             'link_target',
             [
-                'label' => __( 'Button Text', 'delennerd-elements' ),
+                'label' => esc_html__( 'Button Text', 'delennerd-elements' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => '_self',
                 'options' => [
-                    '_self'  => __( 'Same tab', 'delennerd-elements' ),
-                    '_blank'  => __( 'New tab', 'delennerd-elements' ),
-                    'custom'  => __( 'Custom', 'delennerd-elements' ),
+                    '_self'  => esc_html__( 'Same tab', 'delennerd-elements' ),
+                    '_blank'  => esc_html__( 'New tab', 'delennerd-elements' ),
+                    'custom'  => esc_html__( 'Custom', 'delennerd-elements' ),
                 ],
             ]
         );
@@ -128,7 +128,7 @@ class ImageTextBox extends Widget_Base {
         $this->add_control(
             'link_target_custom',
             [
-                'label' => __( 'Custom link target', 'delennerd-elements' ),
+                'label' => esc_html__( 'Custom link target', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXT,
             ]
         );
@@ -136,9 +136,9 @@ class ImageTextBox extends Widget_Base {
         $this->add_control(
             'button_text',
             [
-                'label' => __( 'Button Text', 'delennerd-elements' ),
+                'label' => esc_html__( 'Button Text', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => __( 'My Button', 'delennerd-elements' ),
+                'default' => esc_html__( 'My Button', 'delennerd-elements' ),
             ]
         );
 
@@ -151,7 +151,7 @@ class ImageTextBox extends Widget_Base {
         $this->start_controls_section(
 			'image_style_section',
 			[
-				'label' => __( 'Image', 'delennerd-elements' ),
+				'label' => esc_html__( 'Image', 'delennerd-elements' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -159,7 +159,7 @@ class ImageTextBox extends Widget_Base {
         $this->add_control(
             'image_distance',
             [
-                'label' => __( 'Distance', 'delennerd-elements' ),
+                'label' => esc_html__( 'Distance', 'delennerd-elements' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -188,7 +188,7 @@ class ImageTextBox extends Widget_Base {
 		$this->start_controls_section(
 			'title_style_section',
 			[
-				'label' => __( 'Title', 'delennerd-elements' ),
+				'label' => esc_html__( 'Title', 'delennerd-elements' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -196,7 +196,7 @@ class ImageTextBox extends Widget_Base {
         $this->add_control(
             'title_distance',
             [
-                'label' => __( 'Distance', 'delennerd-elements' ),
+                'label' => esc_html__( 'Distance', 'delennerd-elements' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -219,7 +219,7 @@ class ImageTextBox extends Widget_Base {
         $this->add_control(
             'title_color',
             [
-                'label' => __( 'Title Color', 'delennerd-elements' ),
+                'label' => esc_html__( 'Title Color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
                 'scheme' => [
                     'type' => Color::get_type(),
@@ -235,7 +235,7 @@ class ImageTextBox extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'title_typography',
-                'label'    => __( 'Typography', 'delennerd-elements' ),
+                'label'    => esc_html__( 'Typography', 'delennerd-elements' ),
                 'scheme'   => Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .widget-title',
                 'fields_options' => [
@@ -252,19 +252,19 @@ class ImageTextBox extends Widget_Base {
         $this->add_control(
             'title_text_align',
             [
-                'label' => __( 'Alignment', 'delennerd-elements' ),
+                'label' => esc_html__( 'Alignment', 'delennerd-elements' ),
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'options' => [
                         'left' => [
-                        'title' => __( 'Left', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Left', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-left',
                     ],
                         'center' => [
-                        'title' => __( 'Center', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Center', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-center',
                     ],
                         'right' => [
-                        'title' => __( 'Right', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Right', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-right',
                     ]
                 ],
@@ -285,7 +285,7 @@ class ImageTextBox extends Widget_Base {
         $this->start_controls_section(
 			'content_style_section',
 			[
-				'label' => __( 'Content', 'delennerd-elements' ),
+				'label' => esc_html__( 'Content', 'delennerd-elements' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -293,7 +293,7 @@ class ImageTextBox extends Widget_Base {
         $this->add_control(
             'content_distance',
             [
-                'label' => __( 'Distance', 'delennerd-elements' ),
+                'label' => esc_html__( 'Distance', 'delennerd-elements' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [
@@ -317,7 +317,7 @@ class ImageTextBox extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'content_typography',
-                'label'    => __( 'Typography', 'delennerd-elements' ),
+                'label'    => esc_html__( 'Typography', 'delennerd-elements' ),
                 'scheme'   => Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .widget-content',
                 'fields_options' => [
@@ -334,19 +334,19 @@ class ImageTextBox extends Widget_Base {
         $this->add_control(
             'content_text_align',
             [
-                'label' => __( 'Alignment', 'delennerd-elements' ),
+                'label' => esc_html__( 'Alignment', 'delennerd-elements' ),
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'options' => [
                         'left' => [
-                        'title' => __( 'Left', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Left', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-left',
                     ],
                         'center' => [
-                        'title' => __( 'Center', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Center', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-center',
                     ],
                         'right' => [
-                        'title' => __( 'Right', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Right', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-right',
                     ]
                 ],
@@ -367,7 +367,7 @@ class ImageTextBox extends Widget_Base {
         $this->start_controls_section(
 			'button_style_section',
 			[
-				'label' => __( 'Button', 'delennerd-elements' ),
+				'label' => esc_html__( 'Button', 'delennerd-elements' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -375,7 +375,7 @@ class ImageTextBox extends Widget_Base {
         $this->add_control(
             'button_text_color',
             [
-                'label' => __( 'Text Color', 'delennerd-elements' ),
+                'label' => esc_html__( 'Text Color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
                 'scheme' => [
                     'type' => Color::get_type(),
@@ -390,7 +390,7 @@ class ImageTextBox extends Widget_Base {
         $this->add_control(
             'button_background_color',
             [
-                'label' => __( 'Background color', 'delennerd-elements' ),
+                'label' => esc_html__( 'Background color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
                 'scheme' => [
                     'type' => Color::get_type(),
@@ -405,25 +405,25 @@ class ImageTextBox extends Widget_Base {
         $this->add_control(
             'css_class',
             [
-                'label' => __( 'Button Style', 'delennerd-elements' ),
+                'label' => esc_html__( 'Button Style', 'delennerd-elements' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'primary',
                 'options' => [
-                    'primary' => __( 'Primary', 'delennerd-elements' ),
-                    'secondary' => __( 'Secondary', 'delennerd-elements' ),
-                    'outline-custom' => __( 'Outline Custom', 'delennerd-elements' ),
-                    'outline-custom btn-outline-custom--primary' => __( 'Outline Custom - Primary', 'delennerd-elements' ),
-                    'outline-custom btn-outline-custom--secondary' => __( 'Outline Custom - Secondary', 'delennerd-elements' ),
+                    'primary' => esc_html__( 'Primary', 'delennerd-elements' ),
+                    'secondary' => esc_html__( 'Secondary', 'delennerd-elements' ),
+                    'outline-custom' => esc_html__( 'Outline Custom', 'delennerd-elements' ),
+                    'outline-custom btn-outline-custom--primary' => esc_html__( 'Outline Custom - Primary', 'delennerd-elements' ),
+                    'outline-custom btn-outline-custom--secondary' => esc_html__( 'Outline Custom - Secondary', 'delennerd-elements' ),
                     
-                    'success' => __( 'Success', 'delennerd-elements' ),
-                    'danger' => __( 'Danger', 'delennerd-elements' ),
-                    'warning' => __( 'Warning', 'delennerd-elements' ),
+                    'success' => esc_html__( 'Success', 'delennerd-elements' ),
+                    'danger' => esc_html__( 'Danger', 'delennerd-elements' ),
+                    'warning' => esc_html__( 'Warning', 'delennerd-elements' ),
 
-                    'outline-primary' => __( 'Outline Primary', 'delennerd-elements' ),
-                    'outline-secondary' => __( 'Outline Secondary', 'delennerd-elements' ),
-                    'outline-success' => __( 'Outline Success', 'delennerd-elements' ),
-                    'outline-danger' => __( 'Outline Danger', 'delennerd-elements' ),
-                    'outline-warning' => __( 'Outline Warning', 'delennerd-elements' ),
+                    'outline-primary' => esc_html__( 'Outline Primary', 'delennerd-elements' ),
+                    'outline-secondary' => esc_html__( 'Outline Secondary', 'delennerd-elements' ),
+                    'outline-success' => esc_html__( 'Outline Success', 'delennerd-elements' ),
+                    'outline-danger' => esc_html__( 'Outline Danger', 'delennerd-elements' ),
+                    'outline-warning' => esc_html__( 'Outline Warning', 'delennerd-elements' ),
                 ],
             ]
         );
@@ -432,7 +432,7 @@ class ImageTextBox extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
             'name'     => 'button_typography',
-            'label'    => __( 'Typography', 'delennerd-elements' ),
+            'label'    => esc_html__( 'Typography', 'delennerd-elements' ),
             'scheme'   => Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .widget-button a',
             'fields_options' => [
@@ -449,19 +449,19 @@ class ImageTextBox extends Widget_Base {
         $this->add_control(
             'button_text_align',
             [
-                'label' => __( 'Alignment', 'delennerd-elements' ),
+                'label' => esc_html__( 'Alignment', 'delennerd-elements' ),
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'options' => [
                         'left' => [
-                        'title' => __( 'Left', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Left', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-left',
                     ],
                         'center' => [
-                        'title' => __( 'Center', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Center', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-center',
                     ],
                         'right' => [
-                        'title' => __( 'Right', 'delennerd-elements' ),
+                        'title' => esc_html__( 'Right', 'delennerd-elements' ),
                         'icon' => 'eicon-text-align-right',
                     ]
                 ],
@@ -497,17 +497,16 @@ class ImageTextBox extends Widget_Base {
 	?>
         <div class="delennerd-image-text-box-wrapper">
 
-            <div class="widget-image" <?php echo $this->get_render_attribute_string( 'image' ); ?>>
-                <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'image_dimension', 'image' );
-                //echo wp_get_attachment_image( $settings['image']['id'], $settings['image_dimension_size'] );
+            <div class="widget-image" <?php echo wp_kses_post( $this->get_render_attribute_string( 'image' ) ); ?>>
+                <?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'image_dimension', 'image' ) );
                 ?>
             </div>
-            <h4 class="widget-title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h4>
+            <h4 class="widget-title" <?php echo wp_kses_post( $this->get_render_attribute_string( 'title' ) ); ?>><?php echo wp_kses_post( $settings['title'] ); ?></h4>
 
-            <div class="widget-content" <?php echo $this->get_render_attribute_string( 'content' ); ?>><?php echo $settings['content']; ?></div>
+            <div class="widget-content" <?php echo wp_kses_post( $this->get_render_attribute_string( 'content' ) ); ?>><?php echo $this->parse_text_editor( $settings['content'] ); ?></div>
 
             <div class="widget-button">
-                <a <?php echo $this->get_render_attribute_string( 'button_link' ); ?>><?php echo $settings['button_text']; ?></a>
+                <a <?php echo wp_kses_post( $this->get_render_attribute_string( 'button_link' ) ); ?>><?php echo wp_kses_post( $settings['button_text'] ); ?></a>
             </div>
 
         </div>

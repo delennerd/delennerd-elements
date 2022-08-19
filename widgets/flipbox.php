@@ -18,7 +18,7 @@ class Flipbox extends Widget_Base {
     }
 
     public function get_title() {
-        return __( 'Flipbox', 'delennerd-elements' );
+        return esc_html__( 'Flipbox', 'delennerd-elements' );
     }
 
     public function get_icon() {
@@ -53,7 +53,7 @@ class Flipbox extends Widget_Base {
         $this->start_controls_section(
         'front_content',
             [
-                'label' => __( 'Front side', 'delennerd-elements' ),
+                'label' => esc_html__( 'Front side', 'delennerd-elements' ),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -61,13 +61,13 @@ class Flipbox extends Widget_Base {
         $this->add_control(
             'front_image_icon',
             [
-                'label' => __( 'Show Image or icon', 'delennerd-elements' ),
+                'label' => esc_html__( 'Show Image or icon', 'delennerd-elements' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'image',
                 'options' => [
-                    'image'  => __( 'Image', 'delennerd-elements' ),
-                    'icon'  => __( 'Icon', 'delennerd-elements' ),
-                    'bg-image'  => __( 'Background Image', 'delennerd-elements' ),
+                    'image'  => esc_html__( 'Image', 'delennerd-elements' ),
+                    'icon'  => esc_html__( 'Icon', 'delennerd-elements' ),
+                    'bg-image'  => esc_html__( 'Background Image', 'delennerd-elements' ),
                 ],
             ]
         );
@@ -75,7 +75,7 @@ class Flipbox extends Widget_Base {
         $this->add_control(
             'front_image',
             [
-                'label' => __( 'Image', 'delennerd-elements' ),
+                'label' => esc_html__( 'Image', 'delennerd-elements' ),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => 'https://picsum.photos/500/500',
@@ -89,7 +89,7 @@ class Flipbox extends Widget_Base {
         $this->add_group_control(
             Group_Control_Image_Size::get_type(),
             [
-                'label' => __( 'Image size', 'delennerd-elements' ),
+                'label' => esc_html__( 'Image size', 'delennerd-elements' ),
                 'name' => 'front_image_dimension', // // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `thumbnail_size` and `thumbnail_custom_dimension`.
                 'exclude' => [
                     '',
@@ -105,7 +105,7 @@ class Flipbox extends Widget_Base {
         $this->add_control(
             'front_icon',
             [
-                'label' => __( 'Icon', 'delennerd-elements' ),
+                'label' => esc_html__( 'Icon', 'delennerd-elements' ),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'fas fa-star',
@@ -120,10 +120,10 @@ class Flipbox extends Widget_Base {
         $this->add_control(
             'front_title',
             [
-                'label' => __( 'Title', 'delennerd-elements' ),
+                'label' => esc_html__( 'Title', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'default' => __( 'Title', 'delennerd-elements' ),
+                'default' => esc_html__( 'Title', 'delennerd-elements' ),
                 'dynamic' => [
 					'active' => true,
 				],
@@ -133,9 +133,9 @@ class Flipbox extends Widget_Base {
         $this->add_control(
             'front_text',
             [
-                'label' => __( 'Content', 'delennerd-elements' ),
+                'label' => esc_html__( 'Content', 'delennerd-elements' ),
                 'type' => Controls_Manager::WYSIWYG,
-                'default' => __( '<p>Box content</p>', 'delennerd-elements' ),
+                'default' => esc_html__( '<p>Box content</p>', 'delennerd-elements' ),
                 'dynamic' => [
 					'active' => true,
 				],
@@ -151,7 +151,7 @@ class Flipbox extends Widget_Base {
         $this->start_controls_section(
         'back_content',
             [
-                'label' => __( 'Back side', 'delennerd-elements' ),
+                'label' => esc_html__( 'Back side', 'delennerd-elements' ),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -160,13 +160,13 @@ class Flipbox extends Widget_Base {
         $this->add_control(
             'back_image_icon',
             [
-                'label' => __( 'Show Image or icon', 'delennerd-elements' ),
+                'label' => esc_html__( 'Show Image or icon', 'delennerd-elements' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'image',
                 'options' => [
-                    'image'  => __( 'Image', 'delennerd-elements' ),
-                    'icon'  => __( 'Icon', 'delennerd-elements' ),
-                    'bg-image'  => __( 'Background Image', 'delennerd-elements' ),
+                    'image'  => esc_html__( 'Image', 'delennerd-elements' ),
+                    'icon'  => esc_html__( 'Icon', 'delennerd-elements' ),
+                    'bg-image'  => esc_html__( 'Background Image', 'delennerd-elements' ),
                 ],
             ]
         );
@@ -174,7 +174,7 @@ class Flipbox extends Widget_Base {
         $this->add_control(
             'back_image',
             [
-                'label' => __( 'Image', 'delennerd-elements' ),
+                'label' => esc_html__( 'Image', 'delennerd-elements' ),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => null,
@@ -189,16 +189,16 @@ class Flipbox extends Widget_Base {
             Group_Control_Image_Size::get_type(),
             [
                 'type' => Controls_Manager::SELECT,
-                'label' => __( 'Image size', 'delennerd-elements' ),
+                'label' => esc_html__( 'Image size', 'delennerd-elements' ),
                 'name' => 'back_image_dimension', // // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `thumbnail_size` and `thumbnail_custom_dimension`.
                 'exclude' => [],
                 'include' => [],
                 'default' => 'medium',
                 'options' => [
-                    'thumbnail'  => __( 'Thumbnail - 150 x 150', 'delennerd-elements' ),
-                    'medium' => __( 'Medium - 300 x 300', 'delennerd-elements' ),
-                    'medium_large' => __( 'Medium Large - 768 x 0', 'delennerd-elements' ),
-                    'custom' => __( 'Custom', 'delennerd-elements' ),
+                    'thumbnail'  => esc_html__( 'Thumbnail - 150 x 150', 'delennerd-elements' ),
+                    'medium' => esc_html__( 'Medium - 300 x 300', 'delennerd-elements' ),
+                    'medium_large' => esc_html__( 'Medium Large - 768 x 0', 'delennerd-elements' ),
+                    'custom' => esc_html__( 'Custom', 'delennerd-elements' ),
                 ],
                 'condition' => [
                     'back_image_icon' => [ 'image', 'bg-image' ],
@@ -209,7 +209,7 @@ class Flipbox extends Widget_Base {
         $this->add_control(
             'back_icon',
             [
-                'label' => __( 'Icon', 'delennerd-elements' ),
+                'label' => esc_html__( 'Icon', 'delennerd-elements' ),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'fas fa-star',
@@ -225,10 +225,10 @@ class Flipbox extends Widget_Base {
         $this->add_control(
             'back_title',
             [
-                'label' => __( 'Title', 'delennerd-elements' ),
+                'label' => esc_html__( 'Title', 'delennerd-elements' ),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'default' => __( 'Title', 'delennerd-elements' ),
+                'default' => esc_html__( 'Title', 'delennerd-elements' ),
                 'dynamic' => [
 					'active' => true,
 				],
@@ -238,9 +238,9 @@ class Flipbox extends Widget_Base {
         $this->add_control(
             'back_text',
             [
-                'label' => __( 'Content', 'delennerd-elements' ),
+                'label' => esc_html__( 'Content', 'delennerd-elements' ),
                 'type' => Controls_Manager::WYSIWYG,
-                'default' => __( '<p>Box content</p>', 'delennerd-elements' ),
+                'default' => esc_html__( '<p>Box content</p>', 'delennerd-elements' ),
                 'dynamic' => [
 					'active' => true,
 				],
@@ -256,7 +256,7 @@ class Flipbox extends Widget_Base {
         $this->start_controls_section(
         'front_style',
             [
-                'label' => __( 'Front side', 'delennerd-elements' ),
+                'label' => esc_html__( 'Front side', 'delennerd-elements' ),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -264,7 +264,7 @@ class Flipbox extends Widget_Base {
         $this->add_control(
             'front_bg_color',
             [
-                'label' => __( 'Background color', 'delennerd-elements' ),
+                'label' => esc_html__( 'Background color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
                 'scheme' => [
                     'type' => Color::get_type(),
@@ -285,7 +285,7 @@ class Flipbox extends Widget_Base {
         $this->start_controls_section(
         'back_style',
             [
-                'label' => __( 'Back side', 'delennerd-elements' ),
+                'label' => esc_html__( 'Back side', 'delennerd-elements' ),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -293,7 +293,7 @@ class Flipbox extends Widget_Base {
         $this->add_control(
             'back_bg_color',
             [
-                'label' => __( 'Background color', 'delennerd-elements' ),
+                'label' => esc_html__( 'Background color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
                 'scheme' => [
                     'type' => Color::get_type(),
@@ -348,42 +348,42 @@ class Flipbox extends Widget_Base {
                         <div class="flipbox__image">
 
                             <?php if ( $is_image ) : ?>
-                                <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'front_image_dimension', 'front_image' ); ?>
+                                <?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'front_image_dimension', 'front_image' ) ); ?>
                             <?php endif; ?>
 
                             <?php if ( $is_icon ) : ?>
                                 <?php if ( is_array($settings['front_icon']['value']) ) : ?>
-                                    <img src="<?php echo $settings['front_icon']['value']['url'] ?>" alt="<?php echo $settings['front_title'] ?>">
+                                    <img src="<?php echo Utils::validate_html_tag( $settings['front_icon']['value']['url'] ); ?>" alt="<?php echo wp_kses_post( $settings['front_title'] ); ?>">
                                 <?php else : ?>
-                                    <?php \Elementor\Icons_Manager::render_icon( $settings['front_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-3x' ] ); ?>
+                                    <?php wp_kses_post( \Elementor\Icons_Manager::render_icon( $settings['front_icon'], [ 'aria-hidden' => 'true', 'class' => 'fa-3x' ] ) ); ?>
                                 <?php endif; ?>
                             <?php endif; ?>
 
                         </div>
                     <?php endif; ?>
-                    <div class="flipbox__title" <?php echo $this->get_render_attribute_string( 'front_title' ); ?>>
+                    <div class="flipbox__title" <?php echo wp_kses_post( $this->get_render_attribute_string( 'front_title' ) ); ?>>
                         <?php echo sprintf( 
                                 '<h4 %1$s>%2$s</h4>', 
                                 'class="title"',
-                                $settings['front_title'] 
+                                wp_kses_post( $settings['front_title'] )
                         ); ?>
                     </div>
                     <div class="flipbox__content" <?php echo $this->get_render_attribute_string( 'front_text' ); ?>>
-                        <?php echo $settings['front_text']; ?>
+                        <?php echo $this->parse_text_editor( $settings['front_text'] ); ?>
                     </div>
                 </div>
             </div>
-            <div <?php echo $this->get_render_attribute_string( 'flipbox_back' ); ?>>
+            <div <?php echo wp_kses_post( $this->get_render_attribute_string( 'flipbox_back' ) ); ?>>
                 <div class="flipbox__inner">
                     <div class="flipbox__title" <?php echo $this->get_render_attribute_string( 'flipbox_back' ); ?>>
                         <?php echo sprintf( 
                             '<h4 %1$s>%2$s</h4>',
                             'class="title"',
-                            $settings['back_title']
+                            wp_kses_post( $settings['back_title'] )
                         ); ?>
                     </div>
                     <div class="flipbox__content" <?php echo $this->get_render_attribute_string( 'back_text' ); ?>>
-                        <?php echo $settings['back_text']; ?>
+                        <?php echo $this->parse_text_editor( $settings['back_text'] ); ?>
                     </div>
                 </div>
             </div>

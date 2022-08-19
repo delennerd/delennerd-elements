@@ -87,7 +87,11 @@ class Widgets {
 	 */
 	private function include_widgets_files() {
         foreach ( $this->widgets as $widget_name ) {
-            require_once DELENNERD_ELEMENTS_WIDGETS_PATH . $widget_name . '.php';
+            $file_path = DELENNERD_ELEMENTS_WIDGETS_PATH . sanitize_text_field($widget_name) . '.php';
+
+            if ( false !== realpath($file_path) ) {
+                require $file_path;
+            }
         }
 	}
 
@@ -106,6 +110,8 @@ class Widgets {
 			$class_name = str_replace( '-', ' ', $widget_name );
 			$class_name = str_replace( ' ', '', ucwords( $class_name ) );
 			$class_name = __NAMESPACE__ . '\\Widgets\\' . $class_name;
+
+            if ( ! class_exists( $class_name ) ) continue;
 
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new $class_name() );
 		}
