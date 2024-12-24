@@ -7,8 +7,8 @@ use Elementor\Widget_Base;
 use Elementor\Utils;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Core\Schemes\Color;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 
@@ -218,10 +218,9 @@ class Timeline extends Widget_Base {
             [
                 'label' => esc_html__( 'Date Color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Color::get_type(),
-                    'value' => Color::COLOR_1,
-                ],
+                'global' => [
+        			'default' => Global_Colors::COLOR_PRIMARY,
+        		],
                 'default' => '#3867d6',
                 'selectors' => [
                     '{{WRAPPER}} .list-date' => 'color: {{VALUE}}',
@@ -234,7 +233,9 @@ class Timeline extends Widget_Base {
             [
                 'name'     => 'date_typography',
                 'label'    => esc_html__( 'Typography', 'delennerd-elements' ),
-                'scheme'   => Typography::TYPOGRAPHY_1,
+                'global' => [
+        			'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+        		],
                 'selector' => '{{WRAPPER}} .list-date',
                 'fields_options' => [
                     'letter_spacing' => [
@@ -311,10 +312,9 @@ class Timeline extends Widget_Base {
             [
                 'label' => esc_html__( 'Text Color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Color::get_type(),
-                    'value' => Color::COLOR_1,
-                ],
+                'global' => [
+        			'default' => Global_Colors::COLOR_PRIMARY,
+        		],
                 'selectors' => [
                     '{{WRAPPER}} .list-company' => 'color: {{VALUE}}',
                 ],
@@ -326,7 +326,9 @@ class Timeline extends Widget_Base {
             [
                 'name'     => 'company_typography',
                 'label'    => esc_html__( 'Typography', 'delennerd-elements' ),
-                'scheme'   => Typography::TYPOGRAPHY_1,
+                'global' => [
+        			'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+        		],
                 'selector' => '{{WRAPPER}} .list-company',
                 'fields_options' => [
                     'letter_spacing' => [
@@ -386,10 +388,9 @@ class Timeline extends Widget_Base {
             [
                 'label' => esc_html__( 'Text Color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Color::get_type(),
-                    'value' => Color::COLOR_1,
-                ],
+                'global' => [
+        			'default' => Global_Colors::COLOR_PRIMARY,
+        		],
                 'selectors' => [
                     '{{WRAPPER}} .list-job' => 'color: {{VALUE}}',
                 ],
@@ -401,7 +402,9 @@ class Timeline extends Widget_Base {
             [
                 'name'     => 'job_typography',
                 'label'    => esc_html__( 'Typography', 'delennerd-elements' ),
-                'scheme'   => Typography::TYPOGRAPHY_1,
+                'global' => [
+        			'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+        		],
                 'selector' => '{{WRAPPER}} .list-job',
                 'fields_options' => [
                     'letter_spacing' => [
@@ -461,10 +464,9 @@ class Timeline extends Widget_Base {
             [
                 'label' => esc_html__( 'Text Color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Color::get_type(),
-                    'value' => Color::COLOR_1,
-                ],
+                'global' => [
+        			'default' => Global_Colors::COLOR_PRIMARY,
+        		],
                 'selectors' => [
                     '{{WRAPPER}} .list-content' => 'color: {{VALUE}}',
                 ],
@@ -476,7 +478,9 @@ class Timeline extends Widget_Base {
             [
                 'name'     => 'content_typography',
                 'label'    => esc_html__( 'Typography', 'delennerd-elements' ),
-                'scheme'   => Typography::TYPOGRAPHY_1,
+                'global' => [
+        			'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+        		],
                 'selector' => '{{WRAPPER}} .list-content',
                 'fields_options' => [
                     'letter_spacing' => [

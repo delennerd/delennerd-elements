@@ -6,10 +6,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
-use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
-use Elementor\Group_Control_Image_Size;
-
 
 class SectionHeadline extends Widget_Base
 {
@@ -447,30 +443,35 @@ class SectionHeadline extends Widget_Base
             ?>
 
                 <?php echo sprintf( 
-                        '<%1$s %2$s>%3$s</%1$s>', 
-                        Utils::validate_html_tag( $settings['subtitle_html_tag'] ),
-                        wp_kses_post( $this->get_render_attribute_string( 'subtitle' ) ),
-                        wp_kses_post( $settings['subtitle'] )
+                    '<%1$s %2$s>%3$s</%1$s>', 
+                    Utils::validate_html_tag( $settings['subtitle_html_tag'] ),
+                    wp_kses_post( $this->get_render_attribute_string( 'subtitle' ) ),
+                    wp_kses_post( $settings['subtitle'] )
                 ); ?>
 
             <?php endif;
 
-            echo sprintf( 
+            if ( !empty($settings['title']) ) :
+
+                echo sprintf( 
                     '<%1$s %2$s>%3$s</%1$s>', 
                     Utils::validate_html_tag( $settings['title_html_tag'] ), 
                     wp_kses_post( $this->get_render_attribute_string( 'title' ) ), 
                     wp_kses_post( $settings['title'] )
-            ); ?>
+                ); 
+
+            endif;    
+            ?>
 
             <?php 
                 if ( $settings['subtitle_position'] === 'bottom' && !empty($settings['subtitle']) ) : 
             ?>
 
                 <?php echo sprintf( 
-                        '<%1$s %2$s>%3$s</%1$s>', 
-                        Utils::validate_html_tag( $settings['subtitle_html_tag'] ), 
-                        wp_kses_post( $this->get_render_attribute_string( 'subtitle' ) ), 
-                        wp_kses_post( $settings['subtitle'] ) 
+                    '<%1$s %2$s>%3$s</%1$s>', 
+                    Utils::validate_html_tag( $settings['subtitle_html_tag'] ), 
+                    wp_kses_post( $this->get_render_attribute_string( 'subtitle' ) ), 
+                    wp_kses_post( $settings['subtitle'] ) 
                 ); ?>
 
             <?php endif; ?>

@@ -7,10 +7,9 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Typography;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Core\Schemes\Color;
-
+use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 
 class BootstrapCard extends Widget_Base {
 
@@ -263,10 +262,9 @@ class BootstrapCard extends Widget_Base {
             [
                 'label' => esc_html__( 'Title Color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Color::get_type(),
-                    'value' => Color::COLOR_1,
-                ],
+                'global' => [
+        			'default' => Global_Colors::COLOR_PRIMARY,
+        		],
                 'selectors' => [
                     '{{WRAPPER}} .widget-title' => 'color: {{VALUE}}',
                 ],
@@ -278,7 +276,9 @@ class BootstrapCard extends Widget_Base {
             [
                 'name'     => 'title_typography',
                 'label'    => esc_html__( 'Typography', 'delennerd-elements' ),
-                'scheme'   => Typography::TYPOGRAPHY_1,
+                'global' => [
+        			'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+        		],
                 'selector' => '{{WRAPPER}} .widget-title',
                 'fields_options' => [
                     'letter_spacing' => [
@@ -358,7 +358,9 @@ class BootstrapCard extends Widget_Base {
             [
                 'name'     => 'content_typography',
                 'label'    => esc_html__( 'Typography', 'delennerd-elements' ),
-                'scheme'   => Typography::TYPOGRAPHY_1,
+                'global' => [
+        			'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+        		],
                 'selector' => '{{WRAPPER}} .widget-content',
                 'fields_options' => [
                     'letter_spacing' => [
@@ -419,10 +421,9 @@ class BootstrapCard extends Widget_Base {
             [
                 'label' => esc_html__( 'Text Color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Color::get_type(),
-                    'value' => Color::COLOR_1,
-                ],
+                'global' => [
+        			'default' => Global_Colors::COLOR_PRIMARY,
+        		],
                 'selectors' => [
                     '{{WRAPPER}} .widget-button a' => 'color: {{VALUE}}',
                 ],
@@ -434,10 +435,9 @@ class BootstrapCard extends Widget_Base {
             [
                 'label' => esc_html__( 'Background color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Color::get_type(),
-                    'value' => Color::COLOR_1,
-                ],
+                'global' => [
+        			'default' => Global_Colors::COLOR_PRIMARY,
+        		],
                 'selectors' => [
                     '{{WRAPPER}} .widget-button a' => 'background-color: {{VALUE}}',
                 ],
@@ -491,7 +491,9 @@ class BootstrapCard extends Widget_Base {
             [
             'name'     => 'button_typography',
             'label'    => esc_html__( 'Typography', 'delennerd-elements' ),
-            'scheme'   => Typography::TYPOGRAPHY_1,
+            'global' => [
+    			'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+    		],
             'selector' => '{{WRAPPER}} .widget-button a',
             'fields_options' => [
                 'letter_spacing' => [

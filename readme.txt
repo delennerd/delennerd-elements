@@ -1,10 +1,10 @@
 === Delennerd Elements ===
 Contributors: passl
-Tags: elementor, bootstrap, widgets
-Requires at least: 4.7
-Tested up to: 5.9.0
-Stable tag: 1.4.5
-Requires PHP: 7.0
+Tags: elementor, bootstrap, widgets, bootstrap card
+Requires at least: 6.1
+Tested up to: 6.7.1
+Stable tag: 1.5
+Requires PHP: 8.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,9 @@ Add bootstrap components to your elementor page.
 No, you must implement it in your theme.
 
 == Changelog ==
+
+= 1.5 24/12/2024 =
+* Fixed deprecated Elementor Scheme to the newer Globals (https://developers.elementor.com/docs/deprecations/complex-example/)
 
 = 1.4.4 03/12/2021 =
 * Updated wpml-config to translate flipbox and timeline

@@ -68,12 +68,12 @@ class Widgets {
 	 */
 	public function widget_scripts() {
 
-        wp_enqueue_script( 
-            'delennerd-elements', 
+        wp_enqueue_script(
+            'delennerd-elements',
             DELENNERD_ELEMENTS_ASSETS_URL . 'js/delennerd-elements.js',
             [ 'jquery' ],
-            DELENNERD_ELEMENTS_VER, 
-            true 
+            DELENNERD_ELEMENTS_VER,
+            true
         );
 	}
 
@@ -113,7 +113,7 @@ class Widgets {
 
             if ( ! class_exists( $class_name ) ) continue;
 
-			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new $class_name() );
+			\Elementor\Plugin::instance()->widgets_manager->register( new $class_name() );
 		}
 	}
 
@@ -131,7 +131,7 @@ class Widgets {
 
 		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );
 
-        add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widgets' ] );
+        add_action( 'elementor/widgets/register', [ $this, 'register_widgets' ] );
 
 	}
 }

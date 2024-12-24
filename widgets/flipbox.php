@@ -6,10 +6,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
-use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes\Color;
+use \Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Group_Control_Image_Size;
-
 
 class Flipbox extends Widget_Base {
 
@@ -266,10 +264,9 @@ class Flipbox extends Widget_Base {
             [
                 'label' => esc_html__( 'Background color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Color::get_type(),
-                    'value' => Color::COLOR_1,
-                ],
+                'global' => [
+        			'default' => Global_Colors::COLOR_PRIMARY,
+        		],
                 'selectors' => [
                     '{{WRAPPER}} .flipbox__front' => 'background-color: {{VALUE}}',
                 ],
@@ -295,10 +292,9 @@ class Flipbox extends Widget_Base {
             [
                 'label' => esc_html__( 'Background color', 'delennerd-elements' ),
                 'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Color::get_type(),
-                    'value' => Color::COLOR_1,
-                ],
+                'global' => [
+        			'default' => Global_Colors::COLOR_PRIMARY,
+        		],
                 'selectors' => [
                     '{{WRAPPER}} .flipbox__back' => 'background-color: {{VALUE}}',
                 ],
